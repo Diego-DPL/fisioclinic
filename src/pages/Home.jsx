@@ -3,9 +3,10 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
-import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
+import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, Phone } from "lucide-react"
 import antonioImg from "../assets/Antonio.jpeg"
 import ivanImg from "../assets/Ivan.png"
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
 
 export default function FisioClinicLanding() {
   const scrollToSection = (sectionId) => {
@@ -14,88 +15,135 @@ export default function FisioClinicLanding() {
 
   return (
     <div className="min-h-screen bg-white">
-    {/* Header */}
+        {/* Header */}
         <header className="bg-white shadow-sm border-b border-green-100 sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                    <h1 className="text-xl font-bold text-green-800">FisioClinic</h1>
+                    <p className="text-sm text-green-600">Murcia</p>
+                </div>
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-green-800">FisioClinic</h1>
-              <p className="text-sm text-green-600">Murcia</p>
-            </div>
-            </div>
-                <nav className="hidden md:flex space-x-8 mx-auto">
+            <nav className="hidden md:flex space-x-8 mx-auto">
                 <a href="#inicio" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-                Inicio
+                    Inicio
                 </a>
                 <a href="#servicios" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-                Servicios
+                    Servicios
                 </a>
                 <a href="#equipo" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-                Equipo
+                    Equipo
                 </a>
                 <a href="#contacto" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-                Contacto
+                    Contacto
                 </a>
             </nav>
             <a
-                href="https://wa.me/691179230"
-                className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors"
+            href="https://wa.me/691179230"
+            className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors"
             >
+                <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">691 179 230</span>
             </a>
             <div className="hidden md:block w-[120px]"></div>
-          </div>
-          
+            </div>
+            
         </header>
 
         {/* Hero Section */}
-      <section id="inicio" className="bg-gradient-to-br from-green-50 to-white py-20">
+        <section id="inicio" className="bg-gradient-to-br from-green-50 to-white py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="space-y-4">
+                <div className="space-y-4">
                 <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
-                  Próxima apertura en Murcia
+                    Próxima apertura en Murcia
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Tu centro de <span className="text-green-600">fisioterapia</span> y pilates terapéutico
+                    Tu centro de <span className="text-green-600">fisioterapia</span> y pilates terapéutico
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Fisioterapia basada en evidencia con tecnología avanzada y pilates terapéutico con máquina Reformer
+                    Fisioterapia basada en evidencia con tecnología avanzada y pilates terapéutico con máquina Reformer
                 </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-full"
-                  onClick={() => scrollToSection("contacto")}
+                    size="lg"
+                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-full"
+                    onClick={() => scrollToSection("contacto")}
                 >
-                  Reserva tu cita
+                    Reserva tu cita
                 </Button>
                 <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg rounded-full bg-transparent"
+                    variant="outline"
+                    size="lg"
+                    className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg rounded-full bg-transparent"
                 >
-                  Conoce más
+                    Conoce más
                 </Button>
-              </div>
+                </div>
             </div>
             <div className="relative">
-              <div className="bg-green-100 rounded-3xl p-8">
+                <div className="bg-green-100 rounded-3xl p-8">
                 <img
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
-                  alt="Pilates terapéutico con máquina Reformer"
-                  className="rounded-2xl shadow-lg w-full h-auto"
+                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
+                    alt="Pilates terapéutico con máquina Reformer"
+                    className="rounded-2xl shadow-lg w-full h-auto"
                 />
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
         </div>
-      </section>
+        </section>
+
+        {/* Ubicacion Section */}
+        <section id="ubicacion" className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestra Ubicación</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Encuéntranos en Av. Príncipe de Asturias, 3, Murcia. Con parking público cercano.
+            </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+            <Card className="overflow-hidden border-green-100 shadow-lg">
+                <div className="aspect-w-16 aspect-h-9">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.483987479918!2d-1.139888923679808!3d38.01258997192661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381c60718c38b%3A0x7c9b8b6b1b1b1b1b!2sAv.%20Pr%C3%ADncipe%20de%20Asturias%2C%203%2C%2030007%20Murcia!5e0!3m2!1ses!2ses!4v1620000000000"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación de FisioClinic"
+                ></iframe>
+                </div>
+            </Card>
+                <div className="mt-6 text-center">
+                <p className="text-lg text-gray-700">
+                    <span className="font-semibold">Dirección:</span> Av. Príncipe de Asturias, 3, 30007, Murcia
+                </p>
+                <div className="mt-4 flex justify-center gap-4">
+                    <a href="https://www.google.com/maps/dir//Av.+Pr%C3%ADncipe+de+Asturias,+3,+30007+Murcia/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0xd6381c60718c38b:0x7c9b8b6b1b1b1b1b?sa=X" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-green-600 hover:bg-green-700">
+                        <MapPin className="mr-2 h-4 w-4" /> Ver en Google Maps
+                    </Button>
+                    </a>
+                    <a href="https://www.google.com/maps/dir//Aparcamiento+Disuasorio+Juan+Pablo+II,+Av.+Juan+Pablo+II,+1,+30007+Santiago+y+Zaraiche,+Murcia/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0xd6381c61a45a861:0x1a78553a1a78553a?sa=X" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent">
+                        <MapPin className="mr-2 h-4 w-4" /> Parking cercano
+                    </Button>
+                    </a>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
 
       {/* Servicios Section */}
       <section id="servicios" className="py-20 bg-white">
@@ -206,14 +254,14 @@ export default function FisioClinicLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestro equipo</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Todos nuestros instructores de pilates son fisioterapeutas titulados
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Fisioterapeutas colegiados con amplia experiencia en el sector, en constante formación para ofrecerte el mejor servicio.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="border-green-100 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8">
                 <div className="relative mb-6">
                   <img
                     src={antonioImg}
@@ -232,8 +280,8 @@ export default function FisioClinicLanding() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8">
                 <div className="relative mb-6">
                   <img
                     src={ivanImg}
@@ -257,8 +305,21 @@ export default function FisioClinicLanding() {
         </div>
       </section>
 
-      {/* Formulario de Contacto */}
-      <section id="contacto" className="py-20 bg-gradient-to-br from-green-50 to-white">
+      {/* Opiniones Section */}
+      <section id="opiniones" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Opiniones de nuestros pacientes</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              La satisfacción de nuestros pacientes es nuestra mejor carta de presentación.
+            </p>
+          </div>
+          <TestimonialsCarousel />
+        </div>
+      </section>
+
+      {/* Contacto Section */}
+      <section id="contacto" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
