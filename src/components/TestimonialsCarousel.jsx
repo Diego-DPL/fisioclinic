@@ -53,10 +53,10 @@ const TestimonialsCarousel = () => {
                 <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
               ))}
             </div>
-            <p className="text-xl md:text-2xl italic text-gray-700 mb-6">"{quote}"</p>
+            <p className="text-xl md:text-2xl italic text-green-principal mb-6">"{quote}"</p>
             <div className="flex items-center justify-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                    <User className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-green-secundario/20 rounded-full flex items-center justify-center mr-4">
+                    <User className="w-6 h-6 text-green-principal" />
                 </div>
                 <div>
                     <p className="font-bold text-lg text-gray-900">{name}</p>

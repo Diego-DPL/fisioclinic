@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-green-principal: #20524D;
+  --color-green-secundario: #7ED7CE;
+  --color-green-claro: #40FAD9;
+  --color-marron-claro: #C3C49E;
+  --color-marron-oscuro: #8F7E4F;
+}
+
 /* Estilos personalizados para FisioClinic */
 html {
   scroll-behavior: smooth;
@@ -39,10 +47,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #16a34a;
+  background: #20524D;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #15803d;
+  background: #20524D;
 }
