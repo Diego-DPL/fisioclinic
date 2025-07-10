@@ -286,7 +286,7 @@ export default function FisioClinicLanding() {
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8">
-                <div className="relative mb-6">
+                <div className="relative mb-6 mt-6">
                 <img
                   src={antonioImg}
                   alt="Antonio Sanchez Gonzalez"
@@ -306,7 +306,7 @@ export default function FisioClinicLanding() {
 
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8">
-                <div className="relative mb-6">
+                <div className="relative mb-6 mt-6">
                 <img
                   src={ivanImg}
                   alt="Ivan Muñoz Garcia"
