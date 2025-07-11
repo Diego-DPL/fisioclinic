@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
-import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, Phone, Calendar} from "lucide-react"
+import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, Phone, Calendar, Menu, X} from "lucide-react"
 import antonioImg from "../assets/Antonio_Fisio.jpeg"
 import ivanImg from "../assets/Ivan.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
@@ -12,48 +12,74 @@ import Logo_Full_blanco from "../assets/Logo_Full_blanco.png"
 
 export default function FisioClinicLanding() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
     
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
+    setIsMenuOpen(false);
   }
 
   return (
     <div className="min-h-screen bg-white">
         {/* Header */}
         <header className="bg-white shadow-sm border-b border-green-100 sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                <div className="flex items-center">
-                    <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-16" />
+            <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
+                <div className="flex-shrink-0">
+                    <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-12 md:h-16" />
                 </div>
-                <nav className="hidden md:flex space-x-10 mx-auto">
-                    <a href="#inicio" className="text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                <nav className="hidden lg:flex flex-grow justify-center md:space-x-4 lg:space-x-14">
+                    <a onClick={() => scrollToSection('inicio')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
                         Inicio
                     </a>
-                    <a href="#servicios" className="text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                    <a onClick={() => scrollToSection('servicios')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
                         Servicios
                     </a>
-                    <a href="#equipo" className="text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                    <a onClick={() => scrollToSection('equipo')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
                         Equipo
                     </a>
-                    <a href="#contacto" className="text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                    <a onClick={() => scrollToSection('contacto')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
                         Contacto
                     </a>
                 </nav>
-                <a
-                href="https://wa.me/691179230"
-                className="flex items-center space-x-2 bg-green-principal hover:bg-green-secundario text-white px-5 py-3 rounded-full transition-colors"
-                >
-                    <Phone className="w-5 h-5" />
-                    <span className="text-base font-medium">691 179 230</span>
-                </a>
-                <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="hidden lg:flex items-center space-x-2 border border-green-principal text-green-principal hover:bg-green-50 hover:border-green-secundario hover:text-black px-5 py-3 rounded-full transition-colors ml-4"
-                >
-                    <Calendar className="w-5 h-5" />
-                    <span className="text-base font-medium">Cita online</span>
-                </button>
+                <div className="flex items-center flex-shrink-0 gap-2 sm:gap-3">
+                    <a
+                    href="https://wa.me/691179230"
+                    className="flex items-center space-x-2 bg-green-principal hover:bg-green-secundario text-white px-3 sm:px-4 py-2 rounded-full transition-colors"
+                    >
+                        <Phone className="w-5 h-5" />
+                        <span className="hidden sm:inline text-sm sm:text-base font-medium">691 179 230</span>
+                    </a>
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="flex items-center space-x-2 border border-green-principal text-green-principal hover:bg-green-50 hover:border-green-secundario hover:text-black px-3 sm:px-4 py-2 rounded-full transition-colors"
+                    >
+                        <Calendar className="w-5 h-5" />
+                        <span className="hidden sm:inline text-sm sm:text-base font-medium">Cita online</span>
+                    </button>
+                    <div className="lg:hidden">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
+                            {isMenuOpen ? <X className="w-7 h-7 text-green-principal" /> : <Menu className="w-7 h-7 text-green-principal" />}
+                        </button>
+                    </div>
+                </div>
             </div>
+             {/* Mobile Menu */}
+            {isMenuOpen && (
+                <nav className="lg:hidden bg-white flex flex-col items-center space-y-6 py-8 border-t border-green-100">
+                    <a onClick={() => scrollToSection('inicio')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                        Inicio
+                    </a>
+                    <a onClick={() => scrollToSection('servicios')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                        Servicios
+                    </a>
+                    <a onClick={() => scrollToSection('equipo')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                        Equipo
+                    </a>
+                    <a onClick={() => scrollToSection('contacto')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
+                        Contacto
+                    </a>
+                </nav>
+            )}
         </header>
 
         {/* Modal */}
@@ -79,22 +105,22 @@ export default function FisioClinicLanding() {
         )}
 
         {/* Hero Seccion */}
-        <section id="inicio" className=" bg-green-principal">
+        <section id="inicio" className="bg-green-principal py-16 md:py-20">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-8">
+                    <div className="space-y-8 text-center lg:text-left">
                         <div className="space-y-4">
                         {/* <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                             Próxima apertura en Murcia
                         </div> */}
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                             Tu centro de <span className="text-green-claro">FISIOTERAPIA</span>, <span className="text-green-claro">OSTEOPATIA</span> y <span className="text-green-claro">PILATES</span> terapéutico
                         </h1>
-                        <p className="text-xl text-white leading-relaxed">
+                        <p className="text-lg md:text-xl text-white leading-relaxed">
                             Fisioterapia basada en evidencia con tecnología avanzada y pilates terapéutico con máquina Reformer
                         </p>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <Button
                             size="lg"
                             className="bg-marron-oscuro hover:bg-marron-claro text-white px-8 py-4 text-lg rounded-full"
@@ -111,7 +137,7 @@ export default function FisioClinicLanding() {
                         </Button> */}
                     </div>
                 </div>
-                <div className="relative mt-8 mb-8">
+                <div className="relative mt-12 lg:mt-0">
                     <div className="absolute inset-0 bg-green-secundario/50 blur-md rounded-3xl transform scale-105"></div>
                     <img
                         src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
@@ -124,11 +150,11 @@ export default function FisioClinicLanding() {
         </section>
 
         {/* Ubicacion Section */}
-        <section id="ubicacion" className="py-20 bg-gray-50">
+        <section id="ubicacion" className="py-16 md:py-20 bg-gray-50">
             <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestra Ubicación</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 Encuéntranos en Av. Príncipe de Asturias, 3, Murcia. Con parking público cercano.
             </p>
             </div>
@@ -149,18 +175,18 @@ export default function FisioClinicLanding() {
                 </div>
             </Card>
                 <div className="mt-6 text-center">
-                <p className="text-lg text-green-principal mb-2">
+                <p className="text-lg text-green-principal mb-4">
                     <span className="font-semibold">Dirección:</span> Av. Príncipe de Asturias, 3, 30007, Murcia
                 </p>
-                <div className="mt-4 flex justify-center gap-4">
+                <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4">
                     <a href="https://www.google.com/maps/dir//Av.+Pr%C3%ADncipe+de+Asturias,+3,+30007+Murcia/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0xd6381c60718c38b:0x7c9b8b6b1b1b1b1b?sa=X" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-green-principal hover:bg-green-secundario text-white">
+                    <Button className="bg-green-principal hover:bg-green-secundario text-white w-full sm:w-auto">
                         <MapPin className="mr-2 h-4 w-4" /> Ver en Google Maps
                     </Button>
                     </a>
 
                     <a href="https://maps.app.goo.gl/g6Gn9TWxyke6hghs5" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="border-green-principal text-green-principal hover:bg-green-secundario hover:border-green-secundario hover:text-white bg-transparent">
+                    <Button variant="outline" className="border-green-principal text-green-principal hover:bg-green-secundario hover:border-green-secundario hover:text-white bg-transparent w-full sm:w-auto">
                         <MapPin className="mr-2 h-4 w-4" /> Parking cercano
                     </Button>
                     </a>
@@ -171,18 +197,18 @@ export default function FisioClinicLanding() {
         </section>
 
       {/* Servicios Section */}
-      <section id="servicios" className="py-20 bg-white">
+      <section id="servicios" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestros servicios</h2>
-            <p className="text-xl text-green-principal max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-green-principal max-w-2xl mx-auto">
               Ofrecemos tratamientos especializados con las técnicas más avanzadas
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 text-center">
+              <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Heart className="w-8 h-8 text-green-principal" />
                 </div>
@@ -192,7 +218,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 mb-4 text-center">
+              <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Stethoscope className="w-8 h-8 text-green-principal" />
                 </div>
@@ -202,7 +228,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 mb-4 text-center">
+              <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Activity className="w-8 h-8 text-green-principal" />
                 </div>
@@ -212,7 +238,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 mb-4 text-center">
+              <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="w-8 h-8 text-green-principal" />
                 </div>
@@ -225,7 +251,7 @@ export default function FisioClinicLanding() {
       </section>
 
       {/* Valor Diferencial Section */}
-      <section className="py-20 bg-green-secundario/20">
+      <section className="py-16 md:py-20 bg-green-secundario/20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -256,7 +282,7 @@ export default function FisioClinicLanding() {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-12 lg:mt-0">
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
@@ -275,18 +301,18 @@ export default function FisioClinicLanding() {
       </section>
 
     {/* Equipo Section */}
-        <section id="equipo" className="py-20 bg-white">
+        <section id="equipo" className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestro equipo</h2>
-            <p className="text-xl text-green-principal max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-green-principal max-w-3xl mx-auto">
               Fisioterapeutas colegiados con amplia experiencia en el sector, en constante formación para ofrecerte el mejor servicio.
             </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="relative mb-6 mt-6">
                 <img
                   src={antonioImg}
@@ -296,7 +322,7 @@ export default function FisioClinicLanding() {
                 </div>
                 <h3 className="text-xl font-semibold text-green-principal mb-2">Antonio Sanchez Gonzalez</h3>
                 <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
-                <p className="text-gray-600 text-sm">Especialista en terapia manual y en ecografía musculoesquelética</p>
+                <p className="text-gray-600 text-sm px-4">Especialista en terapia manual y en ecografía musculoesquelética</p>
                 <div className="flex justify-center mt-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
@@ -306,7 +332,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="relative mb-6 mt-6">
                 <img
                   src={ivanImg}
@@ -316,7 +342,7 @@ export default function FisioClinicLanding() {
                 </div>
                 <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
                 <p className="text-green-principal font-medium mb-3">Fisioterapeuta Deportivo</p>
-                <p className="text-gray-600 text-sm">Experto en pilates terapéutico y rehabilitación</p>
+                <p className="text-gray-600 text-sm px-4">Experto en pilates terapéutico y rehabilitación</p>
                 <div className="flex justify-center mt-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
@@ -331,11 +357,11 @@ export default function FisioClinicLanding() {
         </section>
 
       {/* Opiniones Section */}
-      <section id="opiniones" className="py-20 bg-gray-50">
+      <section id="opiniones" className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4">Opiniones de nuestros pacientes</h2>
-            <p className="text-xl text-green-principal max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-green-principal max-w-2xl mx-auto">
               La satisfacción de nuestros pacientes es nuestra mejor carta de presentación.
             </p>
           </div>
@@ -344,12 +370,12 @@ export default function FisioClinicLanding() {
       </section>
 
       {/* Contacto Section */}
-      <section id="contacto" className="py-20 bg-white">
+      <section id="contacto" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Reserva tu cita</h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-lg md:text-xl text-gray-600">
                 Contáctanos para más información o para agendar tu primera consulta
               </p>
             </div>
@@ -391,7 +417,7 @@ export default function FisioClinicLanding() {
                 </CardContent>
               </Card>
 
-              <div className="space-y-8">
+              <div className="space-y-8 mt-12 lg:mt-0">
                 <div>
                   <h3 className="text-2xl font-semibold text-green-principal mb-6">Información de contacto</h3>
                   <div className="space-y-4">
