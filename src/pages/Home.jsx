@@ -22,7 +22,7 @@ export default function FisioClinicLanding() {
   return (
     <div className="min-h-screen bg-white">
         {/* Header */}
-        <header className="bg-white shadow-sm border-b border-green-100 sticky top-0 z-50">
+        <header className="bg-white/90 shadow-sm border-b border-green-secundario sticky top-0 z-50">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
                 <div className="flex-shrink-0">
                     <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-12 md:h-16" />
@@ -495,8 +495,15 @@ export default function FisioClinicLanding() {
               <h4 className="font-semibold mb-4">Contacto</h4>
               <div className="space-y-2 text-gray-100">
                 <p>fisioclinicmurcia@gmail.com</p>
-                <p>@fisioclinicmurcia</p>
-                <p>Murcia, España</p>
+                <a
+                  href="https://www.instagram.com/fisioclinicmurcia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-green-secundario  transition-colors"
+                >
+                  @fisioclinicmurcia
+                </a>
+                <p>Av. Príncipe de Asturias, 3, Murcia, España</p>
               </div>
             </div>
 
@@ -504,7 +511,9 @@ export default function FisioClinicLanding() {
               <h4 className="font-semibold mb-4">Síguenos</h4>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/fisioclinicmurcia"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
