@@ -8,6 +8,7 @@ import antonioImg from "../assets/Antonio_Fisio.jpeg"
 import ivanImg from "../assets/Ivan.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import Logo_Full_verde from "../assets/Logo_Full_verde.png"
+import Logo_Full_blanco from "../assets/Logo_Full_blanco.png"
 
 export default function FisioClinicLanding() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -452,13 +453,13 @@ export default function FisioClinicLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-marron-claro text-white py-12">
+      <footer className="bg-green-principal text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
                  <div className="flex items-center">
-                    <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-16" />
+                    <img src={Logo_Full_blanco} alt="FisioClinic Logo" className="h-16" />
                 </div>
               </div>
               <p className="text-white mb-4">Tu bienestar, nuestra prioridad.</p>
