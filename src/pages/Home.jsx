@@ -1,109 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
-import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, Phone, Calendar, Menu, X} from "lucide-react"
+import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
 import antonioImg from "../assets/Antonio_Fisio.jpeg"
 import ivanImg from "../assets/Ivan.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
-import Logo_Full_verde from "../assets/Logo_Full_verde.png"
-import Logo_Full_blanco from "../assets/Logo_Full_blanco.png"
+import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 
 export default function FisioClinicLanding() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-    
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
-    setIsMenuOpen(false);
   }
 
   return (
-    <div className="min-h-screen bg-white">
-        {/* Header */}
-        <header className="bg-white/90 shadow-sm border-b border-green-secundario sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-                <div className="flex-shrink-0">
-                    <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-12 md:h-16" />
-                </div>
-                <nav className="hidden lg:flex flex-grow justify-center md:space-x-4 lg:space-x-14">
-                    <a onClick={() => scrollToSection('inicio')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Inicio
-                    </a>
-                    <a onClick={() => scrollToSection('servicios')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Servicios
-                    </a>
-                    <a onClick={() => scrollToSection('equipo')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Equipo
-                    </a>
-                    <a onClick={() => scrollToSection('contacto')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Contacto
-                    </a>
-                </nav>
-                <div className="flex items-center flex-shrink-0 gap-2 sm:gap-3">
-                    <a
-                    href="https://wa.me/691179230"
-                    className="flex items-center space-x-2 bg-green-principal hover:bg-green-secundario text-white px-3 sm:px-4 py-2 rounded-full transition-colors"
-                    >
-                        <Phone className="w-5 h-5" />
-                        <span className="hidden sm:inline text-sm sm:text-base font-medium">691 179 230</span>
-                    </a>
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="flex items-center space-x-2 border border-green-principal text-green-principal hover:bg-green-50 hover:border-green-secundario hover:text-black px-3 sm:px-4 py-2 rounded-full transition-colors"
-                    >
-                        <Calendar className="w-5 h-5" />
-                        <span className="hidden sm:inline text-sm sm:text-base font-medium">Cita online</span>
-                    </button>
-                    <div className="lg:hidden">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
-                            {isMenuOpen ? <X className="w-7 h-7 text-green-principal" /> : <Menu className="w-7 h-7 text-green-principal" />}
-                        </button>
-                    </div>
-                </div>
-            </div>
-             {/* Mobile Menu */}
-            {isMenuOpen && (
-                <nav className="lg:hidden bg-white flex flex-col items-center space-y-6 py-8 border-t border-green-100">
-                    <a onClick={() => scrollToSection('inicio')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Inicio
-                    </a>
-                    <a onClick={() => scrollToSection('servicios')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Servicios
-                    </a>
-                    <a onClick={() => scrollToSection('equipo')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Equipo
-                    </a>
-                    <a onClick={() => scrollToSection('contacto')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
-                        Contacto
-                    </a>
-                </nav>
-            )}
-        </header>
-
-        {/* Modal */}
-        {isModalOpen && (
-            <div className="fixed inset-0 flex bg-black/40 items-center justify-center z-50">
-                <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4">
-                    <h3 className="text-xl font-bold text-green-principal mb-4">
-                        Cita online próximamente
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                        La reserva de citas online estará disponible muy pronto. ¡Gracias por tu paciencia!
-                    </p>
-                    <div className="flex justify-end">
-                        <Button
-                            onClick={() => setIsModalOpen(false)}
-                            className="bg-green-principal hover:bg-green-secundario text-white"
-                        >
-                            Cerrar
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        )}
-
+    <>
         {/* Hero Seccion */}
         <section id="inicio" className="bg-green-principal py-16 md:py-20">
             <div className="container mx-auto px-4">
@@ -137,11 +49,14 @@ export default function FisioClinicLanding() {
                         </Button> */}
                     </div>
                 </div>
-                <div className="relative mt-12 lg:mt-0">
+                <div className="relative mt-12 lg:mt-0 max-w-sm mx-auto">
                     <div className="absolute inset-0 bg-green-secundario/50 blur-md rounded-3xl transform scale-105"></div>
-                    <img
-                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
-                        alt="Pilates terapéutico con máquina Reformer"
+                    <video
+                        src={VideoPromo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="rounded-2xl shadow-lg w-full h-auto relative z-10"
                     />
                 </div>
@@ -208,7 +123,7 @@ export default function FisioClinicLanding() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 mt-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Heart className="w-8 h-8 text-green-principal" />
                 </div>
@@ -218,7 +133,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 mt-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Stethoscope className="w-8 h-8 text-green-principal" />
                 </div>
@@ -228,7 +143,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 mt-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Activity className="w-8 h-8 text-green-principal" />
                 </div>
@@ -238,7 +153,7 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 mt-8 text-center">
                 <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="w-8 h-8 text-green-principal" />
                 </div>
@@ -477,62 +392,6 @@ export default function FisioClinicLanding() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-green-principal text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                 <div className="flex items-center">
-                    <img src={Logo_Full_blanco} alt="FisioClinic Logo" className="h-16" />
-                </div>
-              </div>
-              <p className="text-white mb-4">Tu bienestar, nuestra prioridad.</p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Contacto</h4>
-              <div className="space-y-2 text-gray-100">
-                <p>fisioclinicmurcia@gmail.com</p>
-                <a
-                  href="https://www.instagram.com/fisioclinicmurcia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-green-secundario  transition-colors"
-                >
-                  @fisioclinicmurcia
-                </a>
-                <p>Av. Príncipe de Asturias, 3, Murcia, España</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Síguenos</h4>
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.instagram.com/fisioclinicmurcia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-green-principal mt-8 pt-8 text-center">
-            <p className="text-white">© 2025 FisioClinic Murcia. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }
