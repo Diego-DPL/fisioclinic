@@ -41,7 +41,7 @@ export default function Header() {
               <span className="hidden sm:inline text-sm sm:text-base font-medium">684 708 394</span>
             </a>
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => window.open('https://go.fisiotrack.com', '_blank', 'noopener,noreferrer')}
               className="flex items-center space-x-2 border border-green-principal text-green-principal hover:bg-green-50 hover:border-green-secundario hover:text-black px-3 sm:px-4 py-2 rounded-full transition-colors"
             >
               <Calendar className="w-5 h-5" />
