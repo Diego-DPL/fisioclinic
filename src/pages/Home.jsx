@@ -38,7 +38,7 @@ export default function FisioClinicLanding() {
                         <Button
                             size="lg"
                             className="bg-marron-oscuro hover:bg-marron-claro text-white px-8 py-4 text-lg rounded-full"
-                            onClick={() => scrollToSection("contacto")}
+                            onClick={() => window.open('https://go.fisiotrack.com', '_blank', 'noopener,noreferrer')}
                         >
                             Reserva tu cita
                         </Button>
