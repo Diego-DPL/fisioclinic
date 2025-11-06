@@ -3,10 +3,11 @@ import { Mail, Instagram } from "lucide-react"
 import Logo_Full_blanco from "../assets/Logo_Full_blanco.png"
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-green-principal text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex items-center">
@@ -51,10 +52,81 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+
+        <div>
+          <h4 className="font-semibold mb-4">RGPD - Fisioclinic Murcia</h4>
+          <div className='flex flex-row'>
+            
+            <div>
+
+            <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA2&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt=''/></a>
+          <p className='italic ml-6'>Iván</p>
+            </div>
+
+
+          <div>
+
+                    <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA0&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt=''/></a>
+                    <p className='italic ml-6'>Antonio</p>
+          </div>
+
+          </div>
+
+        </div>
         </div>
 
-        <div className="border-t border-green-principal mt-8 pt-8 text-center">
-          <p className="text-white">© 2025 FisioClinic Murcia. Todos los derechos reservados.</p>
+
+        
+
+
+
+        <div className="border-t border-green-principal  pt-8 text-center">
+         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <p className="text-white">© {currentYear} FisioClinic Murcia. Todos los derechos reservados.</p>
+              
+          </div>
+        </div>
+
+                <div className="border-t border-green-principal pt-8 text-center">
+         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+             <a
+              href='src/assets/Politica_Privacidad_Ivan.pdf'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:text-green-secundario"
+            >
+              Política de privacidad (Iván)
+            </a>
+             <span className="text-white">|</span>
+             <a
+              href='src/assets/Politica_Privacidad_Antonio.pdf'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:text-green-secundario"
+            >
+              Política de privacidad (Antonio)
+            </a>
+            <span className="text-white">|</span>
+             <a
+              href='src/assets/AvisoLegal_Antonio.pdf'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:text-green-secundario"
+            >
+              Aviso Legal (Antonio)
+            </a>
+
+            <span className="text-white">|</span>
+             <a
+              href='src/assets/AvisoLegal_Ivan.pdf'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:text-green-secundario"
+            >
+              Aviso Legal (Iván)
+            </a>
+          </div>
         </div>
       </div>
     </footer>

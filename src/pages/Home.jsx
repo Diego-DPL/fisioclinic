@@ -8,6 +8,7 @@ import antonioImg from "../assets/Antonio_Fisio.jpeg"
 import ivanImg from "../assets/Ivan.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
+import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
   const scrollToSection = (sectionId) => {
@@ -16,6 +17,7 @@ export default function FisioClinicLanding() {
 
   return (
     <>
+      <CookieConsent privacyUrl="/src/assets/POLITICA DE COOKIES 2024.docx" />
         {/* Hero Seccion */}
         <section id="inicio" className="bg-green-principal py-16 md:py-20">
             <div className="container mx-auto px-4">
