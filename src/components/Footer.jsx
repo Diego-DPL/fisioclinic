@@ -81,54 +81,54 @@ export default function Footer() {
 
 
 
-        <div className="border-t border-green-principal  pt-8 text-center">
-         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <p className="text-white">© {currentYear} FisioClinic Murcia. Todos los derechos reservados.</p>
-              
-          </div>
-        </div>
+ <div className="border-t border-green-principal mt-6 pt-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+            <p className="text-white text-sm text-center md:text-left">© {currentYear} FisioClinic Murcia. Todos los derechos reservados.</p>
 
-                <div className="border-t border-green-principal pt-8 text-center">
-         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-             <a
-              href='src/assets/Politica_Privacidad_Ivan.pdf'
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline hover:text-green-secundario"
-            >
-              Política de privacidad (Iván)
-            </a>
-             <span className="text-white">|</span>
-             <a
-              href='src/assets/Politica_Privacidad_Antonio.pdf'
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline hover:text-green-secundario"
-            >
-              Política de privacidad (Antonio)
-            </a>
-            <span className="text-white">|</span>
-             <a
-              href='src/assets/AvisoLegal_Antonio.pdf'
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline hover:text-green-secundario"
-            >
-              Aviso Legal (Antonio)
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm">
+              <a
+                href='src/assets/Politica_Privacidad_Ivan.pdf'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline hover:text-green-secundario"
+              >
+                Política de privacidad (Iván)
+              </a>
+              <span className="hidden sm:inline text-white">|</span>
 
-            <span className="text-white">|</span>
-             <a
-              href='src/assets/AvisoLegal_Ivan.pdf'
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline hover:text-green-secundario"
-            >
-              Aviso Legal (Iván)
-            </a>
+              <a
+                href='src/assets/Politica_Privacidad_Antonio.pdf'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline hover:text-green-secundario"
+              >
+                Política de privacidad (Antonio)
+              </a>
+              <span className="hidden sm:inline text-white">|</span>
+
+              <a
+                href='src/assets/AvisoLegal_Antonio.pdf'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline hover:text-green-secundario"
+              >
+                Aviso Legal (Antonio)
+              </a>
+              <span className="hidden sm:inline text-white">|</span>
+
+              <a
+                href='src/assets/AvisoLegal_Ivan.pdf'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline hover:text-green-secundario"
+              >
+                Aviso Legal (Iván)
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+
   )
 }
