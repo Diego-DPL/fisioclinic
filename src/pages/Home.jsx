@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
@@ -11,6 +11,7 @@ import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
+  const [ivanOpen, setIvanOpen] = useState(false)
 
   return (
     <>
@@ -246,14 +247,15 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 md:p-8 relative group overflow-hidden"> {/* <-- añadida "group relative overflow-hidden" */}
-                <div className="relative z-0 mb-6 mt-6"> {/* contenido debajo del overlay */}
+              <CardContent className="p-6 md:p-8 relative group overflow-hidden">
+                <div className="relative z-0 mb-6 mt-6">
                   <img
                     src={ivanImg}
                     alt="Ivan Muñoz Garcia"
                     className="w-[150px] h-[150px] rounded-full mx-auto shadow-lg object-cover"
                   />
                 </div>
+
                 <div className="z-0">
                   <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
                   <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
@@ -263,21 +265,41 @@ export default function FisioClinicLanding() {
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
+
+                  {/* botón móvil para abrir overlay */}
+                  <div className="mt-4 sm:hidden">
+                    <button
+                      type="button"
+                      onClick={() => setIvanOpen(true)}
+                      className="bg-green-principal text-white px-4 py-2 rounded-full text-sm w-full"
+                      aria-expanded={ivanOpen}
+                      aria-controls="ivan-overlay"
+                    >
+                      Más info
+                    </button>
+                  </div>
                 </div>
 
                 <div
-                  className="absolute inset-0 bg-white/95 p-6 text-left transform translate-y-full group-hover:translate-y-0 focus-within:translate-y-0 transition-transform duration-300 ease-in-out z-10 pointer-events-auto"
-                  aria-hidden="false"
-                >
-                  <h4 className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+                  id="ivan-overlay"
+                  onClick={() => setIvanOpen(false)} 
+                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10 pointer-events-auto
+                    ${ivanOpen ? 'translate-y-0' : 'translate-y-full'} group-hover:translate-y-0 focus-within:translate-y-0
+                    overflow-y-auto max-h-[75vh] sm:max-h-full`
+                  }
+                  aria-hidden={!ivanOpen}
+                  role="region"
+                  aria-labelledby="ivan-especialidades"   >
+                     <h4 className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+
                   <ul className="text-gray-700 text-sm space-y-3 mt-2">
-                      <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
-                      <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
-                      <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
-                      <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
-                      <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
-                      <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
-                      <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
+                    <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
+                    <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
+                    <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
+                    <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
+                    <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
+                    <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
+                    <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
                   </ul>
                 </div>
               </CardContent>
