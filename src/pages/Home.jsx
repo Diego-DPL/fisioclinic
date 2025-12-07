@@ -5,15 +5,12 @@ import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
 import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
 import antonioImg from "../assets/Antonio_Fisio.jpeg"
-import ivanImg from "../assets/Ivan.png"
+import ivanImg from "../assets/Ivan_Fisio.jpeg"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
-  }
 
   return (
     <>
@@ -249,21 +246,39 @@ export default function FisioClinicLanding() {
             </Card>
 
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 md:p-8">
-                <div className="relative mb-6 mt-6">
-                <img
-                  src={ivanImg}
-                  alt="Ivan Muñoz Garcia"
-                  className="w-[150px] h-[150px] rounded-full mx-auto shadow-lg object-cover"
-                />
+              <CardContent className="p-6 md:p-8 relative group overflow-hidden"> {/* <-- añadida "group relative overflow-hidden" */}
+                <div className="relative z-0 mb-6 mt-6"> {/* contenido debajo del overlay */}
+                  <img
+                    src={ivanImg}
+                    alt="Ivan Muñoz Garcia"
+                    className="w-[150px] h-[150px] rounded-full mx-auto shadow-lg object-cover"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
-                <p className="text-green-principal font-medium mb-3">Fisioterapeuta Deportivo</p>
-                <p className="text-gray-600 text-sm px-4">Experto en pilates terapéutico y rehabilitación</p>
-                <div className="flex justify-center mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
+                <div className="z-0">
+                  <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
+                  <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
+                  <p className="text-gray-600 text-sm px-4">Experto en pilates terapéutico y rehabilitación</p>
+                  <div className="flex justify-center mt-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="absolute inset-0 bg-white/95 p-6 text-left transform translate-y-full group-hover:translate-y-0 focus-within:translate-y-0 transition-transform duration-300 ease-in-out z-10 pointer-events-auto"
+                  aria-hidden="false"
+                >
+                  <h4 className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+                  <ul className="text-gray-700 text-sm space-y-3 mt-2">
+                      <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
+                      <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
+                      <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
+                      <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
+                      <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
+                      <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
+                      <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
