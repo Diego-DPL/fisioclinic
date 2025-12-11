@@ -243,7 +243,7 @@ export default function FisioClinicLanding() {
 
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300 ">
               <CardContent className="p-6 md:p-8 relative group overflow-hidden ">
-                <div className="relative z-0 mb-6 ">
+                <div className="relative z-0 mb-6 h-[-15%]">
                   <img
                     src={ivanImg}
                     alt="Ivan Muñoz Garcia"
