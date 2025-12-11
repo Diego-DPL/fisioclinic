@@ -4,8 +4,8 @@ import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
 import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
-import antonioImg from "../assets/Antonio_Fisio.jpeg"
-import ivanImg from "../assets/Ivan_Fisio.jpeg"
+import antonioImg from "../assets/Antonio_Fisio-removebg.png"
+import ivanImg from "../assets/Ivan_Fisio-removebg.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 import CookieConsent from '../components/Cookies.jsx';
@@ -228,44 +228,33 @@ export default function FisioClinicLanding() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 md:p-8">
-                <div className="relative mb-6 mt-6">
+                <div className="relative mb-6 ">
                 <img
                   src={antonioImg}
                   alt="Antonio Sanchez Gonzalez"
-                  className="w-[150px] h-[150px] rounded-full mx-auto shadow-lg object-cover object-[center_20%]"
                 />
                 </div>
                 <h3 className="text-xl font-semibold text-green-principal mb-2">Antonio Sanchez Gonzalez</h3>
                 <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
                 <p className="text-gray-600 text-sm px-4">Especialista en terapia manual y en ecografía musculoesquelética</p>
-                <div className="flex justify-center mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
-                </div>
+        
               </CardContent>
             </Card>
 
-            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 md:p-8 relative group overflow-hidden">
-                <div className="relative z-0 mb-6 mt-6">
+            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300 ">
+              <CardContent className="p-6 md:p-8 relative group overflow-hidden ">
+                <div className="relative z-0 mb-6 mt-[-10%]">
                   <img
                     src={ivanImg}
                     alt="Ivan Muñoz Garcia"
-                    className="w-[150px] h-[150px] rounded-full mx-auto shadow-lg object-cover"
+                    className="object-cover"
                   />
                 </div>
 
-                <div className="z-0">
+                <div className="z-0 ">
                   <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
-                  <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
-                  <p className="text-gray-600 text-sm px-4">Experto en pilates terapéutico y rehabilitación</p>
-                  <div className="flex justify-center mt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-
+                  <p className="text-green-principal font-medium mb-3 ">Fisioterapeuta y Osteópata</p>
+                  <p className="text-gray-600 text-sm px-4 ">Experto en pilates terapéutico y rehabilitación</p>
                   {/* botón móvil para abrir overlay */}
                   <div className="mt-4 sm:hidden">
                     <button
