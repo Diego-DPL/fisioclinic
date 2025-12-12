@@ -271,25 +271,29 @@ export default function FisioClinicLanding() {
 
                 <div
                   id="ivan-overlay"
-                  onClick={() => setIvanOpen(false)} 
-                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10 pointer-events-auto
-                    ${ivanOpen ? 'translate-y-0' : 'translate-y-full'} group-hover:translate-y-0 focus-within:translate-y-0
-                    overflow-y-auto max-h-[75vh] sm:max-h-full`
-                  }
+                  onClick={() => setIvanOpen(false)}
+                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
+                    ${ivanOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
+                    group-hover:translate-y-0 group-hover:pointer-events-auto
+                    focus-within:translate-y-0 focus-within:pointer-events-auto`}
                   aria-hidden={!ivanOpen}
                   role="region"
-                  aria-labelledby="ivan-especialidades"   >
-                     <h4 className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+                  aria-labelledby="ivan-especialidades"
+                >
+                  {/* contenedor interior evita que clicks dentro cierren y permite scroll */}
+                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-0">
+                    <h4 id="ivan-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
 
-                  <ul className="text-gray-700 text-sm space-y-3 mt-2">
-                    <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
-                    <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
-                    <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
-                    <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
-                    <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
-                    <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
-                    <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
-                  </ul>
+                    <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
+                      <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
+                      <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
+                      <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
+                      <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
+                      <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
+                      <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
+                      <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
+                    </ul>
+                  </div>
                 </div>
               </CardContent>
             </Card>
