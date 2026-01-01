@@ -256,7 +256,7 @@ export default function FisioClinicLanding() {
                 </div>
 
                 <div
-                  id="ivan-overlay"
+                  id="antonio-overlay"
                   onClick={() => setAntonioOpen(false)}
                   className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
                     ${ivanOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
@@ -264,7 +264,7 @@ export default function FisioClinicLanding() {
                     focus-within:translate-y-0 focus-within:pointer-events-auto`}
                   aria-hidden={!antonioOpen}
                   role="region"
-                  aria-labelledby="ivan-especialidades"
+                  aria-labelledby="antonio-especialidades"
                 >
                   {/* contenedor interior evita que clicks dentro cierren y permite scroll */}
                   <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-0">
