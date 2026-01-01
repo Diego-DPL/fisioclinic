@@ -259,7 +259,7 @@ export default function FisioClinicLanding() {
                   id="antonio-overlay"
                   onClick={() => setAntonioOpen(false)}
                   className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
-                    ${ivanOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
+                    ${antonioOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
                     group-hover:translate-y-0 group-hover:pointer-events-auto
                     focus-within:translate-y-0 focus-within:pointer-events-auto`}
                   aria-hidden={!antonioOpen}
