@@ -4,7 +4,7 @@ import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
 import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
-import antonioImg from "../assets/Antonio_Fisio-removebg.png"
+import antonioImg from "../assets/Antonio_Fisio_3.png"
 import ivanImg from "../assets/Ivan_Fisio-removebg.png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
@@ -12,6 +12,7 @@ import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
   const [ivanOpen, setIvanOpen] = useState(false)
+  const [antonioOpen, setAntonioOpen] = useState(false)
 
   return (
     <>
@@ -227,17 +228,60 @@ export default function FisioClinicLanding() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
             <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 md:p-8">
-                <div className="relative mb-6 ">
-                <img
-                  src={antonioImg}
-                  alt="Antonio Sanchez Gonzalez"
-                />
+              <CardContent className="p-6 md:p-8 relative group overflow-hidden ">
+                <div className="relative z-0 mb-6 h-[-15%]">
+                  <img
+                    src={antonioImg}
+                    alt="Antonio Sanchez Gonzalez"
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-2">Antonio Sanchez Gonzalez</h3>
-                <p className="text-green-principal font-medium mb-3">Fisioterapeuta y Osteópata</p>
-                <p className="text-gray-600 text-sm px-4">Especialista en terapia manual y en ecografía musculoesquelética</p>
-        
+
+                <div className="z-0 ">
+                  <h3 className="text-xl font-semibold text-green-principal mb-2">Antonio Sánchez González</h3>
+                  <p className="text-green-principal font-medium mb-3 ">Fisioterapeuta y Osteópata</p>
+                  <p className="text-gray-600 text-sm px-4 ">Especialista en terapia manual y en ecografía musculoesquelética</p>
+                  {/* botón móvil para abrir overlay */}
+                  <div className="mt-4 sm:hidden">
+                    <button
+                      type="button"
+                      onClick={() => setAntonioOpen(true)}
+                      className="bg-green-principal text-white px-4 py-2 rounded-full text-sm w-full"
+                      aria-expanded={antonioOpen}
+                      aria-controls="antonio-overlay"
+                    >
+                      Más info
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  id="ivan-overlay"
+                  onClick={() => setAntonioOpen(false)}
+                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
+                    ${ivanOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
+                    group-hover:translate-y-0 group-hover:pointer-events-auto
+                    focus-within:translate-y-0 focus-within:pointer-events-auto`}
+                  aria-hidden={!antonioOpen}
+                  role="region"
+                  aria-labelledby="ivan-especialidades"
+                >
+                  {/* contenedor interior evita que clicks dentro cierren y permite scroll */}
+                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-0">
+                    <h4 id="ivan-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+                    <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
+                      <li>🩺 Graduado en Fisioterapia.</li>
+                      <li>🦴 Máster en Osteopatía por la Escuela de Osteopatía de Madrid.</li>
+                      <li>👴 Máster en Envejecimiento.</li>
+                      <li>📡 Máster en Ecografía y Fisioterapia Invasiva.</li>
+                      <li>💉 Formación de postgrado en Punción Seca, Neuromodulación y Electroneguroacupuntura.</li>
+                      <li>🧠 Especialista en tratamiento de la columna vertebral: hernia discal lumbar y cervical, protrusión discal y discopatías.</li>
+                      <li>🤕 Especialista en el tratamiento de migrañas y cefaleas mediante abordaje manual e intervencionista.</li>
+                      <li>🎗️ Curso de drenaje linfático manual. Especialista en el tratamiento de complicaciones secundarias al cáncer de mama (linfedema, neuralgias y limitación de movilidad).</li>
+                      <li className="mt-2">🧘‍♀️ Pilates terapéutico adaptado a patología de columna.</li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
