@@ -4,8 +4,8 @@ import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
 import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
-import antonioImg from "../assets/Antonio_Fisio_3.png"
-import ivanImg from "../assets/Ivan_Fisio-removebg.png"
+import antonioImg from "../assets/Antonio Sánchez (1).png"
+import ivanImg from "../assets/Ivan Muñoz (2).png"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 import CookieConsent from '../components/Cookies.jsx';
@@ -75,7 +75,7 @@ export default function FisioClinicLanding() {
             </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
             <Card className="overflow-hidden border-green-100 shadow-lg">
                 <div className="aspect-w-16 aspect-h-9">
                 <iframe
@@ -220,45 +220,25 @@ export default function FisioClinicLanding() {
         <section id="equipo" className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestro equipo</h2>
-            <p className="text-lg md:text-xl text-green-principal max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-principal mb-4 text-[shadow:1px_1px_2px_#0000004f]">Nuestro equipo</h2>
+            <p className="text-lg md:text-xl text-green-principal max-w-3xl mx-auto text-[shadow:1px_1px_2px_#0000004f]">
               Fisioterapeutas colegiados con amplia experiencia en el sector, en constante formación para ofrecerte el mejor servicio.
             </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
-            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 md:p-8 relative group overflow-hidden ">
-                <div className="relative z-0 mb-6 h-[-15%]">
-                  <img
-                    src={antonioImg}
-                    alt="Antonio Sanchez Gonzalez"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="z-0 ">
-                  <h3 className="text-xl font-semibold text-green-principal mb-2">Antonio Sánchez González</h3>
-                  <p className="text-green-principal font-medium mb-3 ">Fisioterapeuta y Osteópata</p>
-                  <p className="text-gray-600 text-sm px-4 ">Especialista en terapia manual y en ecografía musculoesquelética</p>
-                  {/* botón móvil para abrir overlay */}
-                  <div className="mt-4 sm:hidden">
-                    <button
-                      type="button"
-                      onClick={() => setAntonioOpen(true)}
-                      className="bg-green-principal text-white px-4 py-2 rounded-full text-sm w-full"
-                      aria-expanded={antonioOpen}
-                      aria-controls="antonio-overlay"
-                    >
-                      Más info
-                    </button>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+            <Card className="border-green-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-0 relative group overflow-hidden h-80 sm:h-96 ">
+                <img
+                  src={antonioImg}
+                  alt="Antonio Sanchez Gonzalez"
+                  className="w-full h-full object-cover"
+                />
 
                 <div
                   id="antonio-overlay"
                   onClick={() => setAntonioOpen(false)}
-                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
+                  className={`absolute inset-0 bg-white/95 text-left transform transition-transform duration-300 ease-in-out z-10
                     ${antonioOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
                     group-hover:translate-y-0 group-hover:pointer-events-auto
                     focus-within:translate-y-0 focus-within:pointer-events-auto`}
@@ -266,9 +246,8 @@ export default function FisioClinicLanding() {
                   role="region"
                   aria-labelledby="antonio-especialidades"
                 >
-                  {/* contenedor interior evita que clicks dentro cierren y permite scroll */}
-                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-0">
-                    <h4 id="ivan-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
+                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-6">
+                    <h4 id="antonio-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
                     <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
                       <li>🩺 Graduado en Fisioterapia.</li>
                       <li>🦴 Máster en Osteopatía por la Escuela de Osteopatía de Madrid.</li>
@@ -282,41 +261,31 @@ export default function FisioClinicLanding() {
                     </ul>
                   </div>
                 </div>
+
+                {/* Botón overlay en la imagen */}
+                <button
+                  type="button"
+                  onClick={() => setAntonioOpen(true)}
+                  className="absolute inset-0 w-full h-full opacity-0 hover:opacity-100 bg-black/30 hover:bg-black/50 transition-all duration-300 flex items-center justify-center"
+                  aria-label="Ver información de Antonio"
+                >
+                  <span className="text-white font-semibold text-lg">Antonio Sánchez</span>
+                </button>
               </CardContent>
             </Card>
 
-            <Card className="border-green-100 overflow-hidden text-center hover:shadow-lg transition-shadow duration-300 ">
-              <CardContent className="p-6 md:p-8 relative group overflow-hidden ">
-                <div className="relative z-0 mb-6 h-[-15%]">
-                  <img
-                    src={ivanImg}
-                    alt="Ivan Muñoz Garcia"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="z-0 ">
-                  <h3 className="text-xl font-semibold text-green-principal mb-2">Ivan Muñoz Garcia</h3>
-                  <p className="text-green-principal font-medium mb-3 ">Fisioterapeuta y Osteópata</p>
-                  <p className="text-gray-600 text-sm px-4 ">Experto en pilates terapéutico y rehabilitación</p>
-                  {/* botón móvil para abrir overlay */}
-                  <div className="mt-4 sm:hidden">
-                    <button
-                      type="button"
-                      onClick={() => setIvanOpen(true)}
-                      className="bg-green-principal text-white px-4 py-2 rounded-full text-sm w-full"
-                      aria-expanded={ivanOpen}
-                      aria-controls="ivan-overlay"
-                    >
-                      Más info
-                    </button>
-                  </div>
-                </div>
+            <Card className="border-green-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-0 relative group overflow-hidden h-80 sm:h-96">
+                <img
+                  src={ivanImg}
+                  alt="Ivan Muñoz Garcia"
+                  className="w-full h-full object-cover"
+                />
 
                 <div
                   id="ivan-overlay"
                   onClick={() => setIvanOpen(false)}
-                  className={`absolute inset-0 bg-white/95 p-6 text-left transform transition-transform duration-300 ease-in-out z-10
+                  className={`absolute inset-0 bg-white/95 text-left transform transition-transform duration-300 ease-in-out z-10
                     ${ivanOpen ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'}
                     group-hover:translate-y-0 group-hover:pointer-events-auto
                     focus-within:translate-y-0 focus-within:pointer-events-auto`}
@@ -324,10 +293,8 @@ export default function FisioClinicLanding() {
                   role="region"
                   aria-labelledby="ivan-especialidades"
                 >
-                  {/* contenedor interior evita que clicks dentro cierren y permite scroll */}
-                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-0">
+                  <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-6">
                     <h4 id="ivan-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
-
                     <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
                       <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
                       <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
@@ -339,10 +306,18 @@ export default function FisioClinicLanding() {
                     </ul>
                   </div>
                 </div>
+
+                {/* Botón overlay en la imagen */}
+                <button
+                  type="button"
+                  onClick={() => setIvanOpen(true)}
+                  className="absolute inset-0 w-full h-full opacity-0 hover:opacity-100 bg-black/30 hover:bg-black/50 transition-all duration-300 flex items-center justify-center"
+                  aria-label="Ver información de Ivan"
+                >
+                  <span className="text-white font-semibold text-lg">Ivan Muñoz</span>
+                </button>
               </CardContent>
             </Card>
-
-
             </div>
           </div>
         </section>
