@@ -10,7 +10,7 @@ export default function PilatesTerapeutico() {
     document.title = "Pilates Terapéutico Reformer en Murcia | FisioClinic Av. Príncipe de Asturias"
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Pilates terapéutico con máquina Reformer en Murcia centro, Av. Príncipe de Asturias 3. Fortalecimiento, rehabilitación de espalda y prevención de lesiones. Centro cerca del Zigzag.')
+      metaDescription.setAttribute('content', 'Pilates terapéutico con máquina Reformer en Murcia centro. Sesiones individuales, en pareja o grupos reducidos (máx. 6) por niveles. Av. Príncipe de Asturias 3, cerca del Zigzag.')
     }
   }, [])
 
@@ -68,7 +68,7 @@ export default function PilatesTerapeutico() {
             <div className="hidden sm:block w-px h-6 bg-green-principal/30"></div>
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5" />
-              <span className="font-medium">Sesiones Individuales</span>
+              <span className="font-medium">Individual, Pareja o Grupos (máx. 6)</span>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function PilatesTerapeutico() {
               </p>
               
               <p className="text-lg leading-relaxed">
-                A diferencia del Pilates tradicional de grupo, en <strong>FisioClinic Murcia</strong> (Av. Príncipe de Asturias 3, cerca del Zigzag) trabajamos con <strong>sesiones individualizadas</strong> donde un fisioterapeuta especializado supervisa cada ejercicio, adaptándolo a tu patología, nivel y objetivos específicos.
+                En <strong>FisioClinic Murcia</strong> (Av. Príncipe de Asturias 3, cerca del Zigzag) ofrecemos <strong>tres modalidades</strong>: sesiones <strong>individuales</strong>, en <strong>pareja</strong> o en <strong>grupos reducidos de máximo 6 personas</strong> organizados por niveles. Siempre bajo la supervisión de un fisioterapeuta especializado que adapta cada ejercicio a tu patología, nivel y objetivos específicos.
               </p>
 
               <Card className="bg-green-secundario/10 border-green-claro/30 my-8">
@@ -328,7 +328,7 @@ export default function PilatesTerapeutico() {
                 <tbody className="divide-y divide-gray-200">
                   <tr>
                     <td className="p-4 font-medium">Supervisión</td>
-                    <td className="p-4 text-center text-green-600 font-semibold">Fisioterapeuta 1:1</td>
+                    <td className="p-4 text-center text-green-600 font-semibold">Fisioterapeuta (individual, pareja o grupos máx. 6)</td>
                     <td className="p-4 text-center">Instructor grupos de 10-20</td>
                   </tr>
                   <tr className="bg-gray-50">
@@ -427,7 +427,7 @@ export default function PilatesTerapeutico() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Sesiones individuales donde trabajamos <strong>todo el cuerpo</strong> con énfasis en tus zonas problemáticas. Progresión gradual y ajustes continuos.
+                    Elige la modalidad que mejor se adapte a ti: <strong>individual</strong>, en <strong>pareja</strong> o en <strong>grupos reducidos (máx. 6 personas)</strong> organizados por niveles. Trabajamos todo el cuerpo con énfasis en tus zonas problemáticas, con progresión gradual y ajustes continuos.
                   </p>
                   <ul className="space-y-2 text-gray-600 text-sm">
                     <li className="flex items-start">

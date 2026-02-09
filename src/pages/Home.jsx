@@ -35,7 +35,7 @@ export default function FisioClinicLanding() {
     pilates: {
       titulo: "Pilates terapéutico Reformer",
       descripcion: "Ejercicio terapéutico con máquina especializada",
-      hover: "Fortalece tu cuerpo y previene futuras lesiones con Pilates Reformer. Sesiones personalizadas con máquina profesional para rehabilitar lesiones de espalda, mejorar tu postura y ganar flexibilidad. Ideal para complementar tu tratamiento de fisioterapia y mantener resultados a largo plazo."
+      hover: "Fortalece tu cuerpo y previene futuras lesiones con Pilates Reformer. Sesiones individuales, en pareja o en grupos reducidos (máx. 6 personas) por niveles, con máquina profesional. Ideal para rehabilitar lesiones de espalda, mejorar tu postura y ganar flexibilidad."
     }
   }
 
