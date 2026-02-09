@@ -60,14 +60,14 @@ export default function Footer() {
             
             <div>
 
-            <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA2&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt=''/></a>
+            <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA2&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt='Sello RGPD Iván' loading='lazy' /></a>
           <p className='italic ml-6'>Iván</p>
             </div>
 
 
           <div>
 
-                    <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA0&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt=''/></a>
+                    <a href='https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA0&idC=MjI5OTM='><img src ='https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png' alt='Sello RGPD Antonio' loading='lazy' /></a>
                     <p className='italic ml-6'>Antonio</p>
           </div>
 

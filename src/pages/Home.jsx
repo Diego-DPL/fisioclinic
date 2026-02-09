@@ -9,6 +9,7 @@ import antonioImg from "../assets/Antonio_Sanchez_Logo.jpg"
 import ivanImg from "../assets/Ivan_Muñoz_Logo.jpg"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import PilatesImg from "../assets/Pilapes.webp"
+import EcografoImg from "../assets/Ecografo.webp"
 import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
@@ -271,13 +272,15 @@ export default function FisioClinicLanding() {
             <div className="relative mt-12 lg:mt-0">
               <div className="grid grid-cols-2 gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
-                  alt="Fisioterapeuta realizando tratamiento manual"
+                  src={EcografoImg}
+                  alt="Ecógrafo profesional en FisioClinic Murcia"
+                  loading="lazy"
                   className="rounded-2xl shadow-lg w-full h-auto"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
                   alt="Sesión de fisioterapia personalizada"
+                  loading="lazy"
                   className="rounded-2xl shadow-lg mt-8 w-full h-auto"
                 />
               </div>
@@ -302,6 +305,7 @@ export default function FisioClinicLanding() {
                 <img
                   src={antonioImg}
                   alt="Antonio Sanchez Gonzalez"
+                  loading="lazy"
                   className="w-full h-full object-cover object-top"
                 />
 
@@ -319,15 +323,15 @@ export default function FisioClinicLanding() {
                   <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-6">
                     <h4 id="antonio-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
                     <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
-                      <li>🩺 Graduado en Fisioterapia.</li>
-                      <li>🦴 Máster en Osteopatía por la Escuela de Osteopatía de Madrid.</li>
-                      <li>👴 Máster en Envejecimiento.</li>
-                      <li>📡 Máster en Ecografía y Fisioterapia Invasiva.</li>
-                      <li>💉 Formación de postgrado en Punción Seca, Neuromodulación y Electroneguroacupuntura.</li>
-                      <li>🧠 Especialista en tratamiento de la columna vertebral: hernia discal lumbar y cervical, protrusión discal y discopatías.</li>
-                      <li>🤕 Especialista en el tratamiento de migrañas y cefaleas mediante abordaje manual e intervencionista.</li>
-                      <li>🎗️ Curso de drenaje linfático manual. Especialista en el tratamiento de complicaciones secundarias al cáncer de mama (linfedema, neuralgias y limitación de movilidad).</li>
-                      <li className="mt-2">🧘‍♀️ Pilates terapéutico adaptado a patología de columna.</li>
+                      <li>Graduado en Fisioterapia.</li>
+                      <li>Máster en Osteopatía por la Escuela de Osteopatía de Madrid.</li>
+                      <li>Máster en Envejecimiento.</li>
+                      <li>Máster en Ecografía y Fisioterapia Invasiva.</li>
+                      <li>Formación de postgrado en Punción Seca, Neuromodulación y Electroneuroacupuntura.</li>
+                      <li>Especialista en tratamiento de la columna vertebral: hernia discal lumbar y cervical, protrusión discal y discopatías.</li>
+                      <li>Especialista en el tratamiento de migrañas y cefaleas mediante abordaje manual e intervencionista.</li>
+                      <li>Curso de drenaje linfático manual. Especialista en el tratamiento de complicaciones secundarias al cáncer de mama (linfedema, neuralgias y limitación de movilidad).</li>
+                      <li>Pilates terapéutico adaptado a patología de columna.</li>
                     </ul>
                   </div>
                 </div>
@@ -349,6 +353,7 @@ export default function FisioClinicLanding() {
                 <img
                   src={ivanImg}
                   alt="Ivan Muñoz Garcia"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
 
@@ -366,13 +371,13 @@ export default function FisioClinicLanding() {
                   <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[75vh] sm:max-h-full p-6">
                     <h4 id="ivan-especialidades" className="text-lg font-semibold text-green-principal mb-2">Especialidades</h4>
                     <ul className="text-gray-700 text-sm space-y-3 mt-2 pb-6">
-                      <li>🩺 Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
-                      <li>🤲 Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
-                      <li>🏃‍♂️ Experto en fisioterapia deportiva y "return to play".</li>
-                      <li>🦷 Especialista en trabajo de la ATM (articulación temporomandibular).</li>
-                      <li>💉 Especialista en terapia invasiva ecográfica (EPI y neuromodulación)</li>
-                      <li>🧘‍♂️ Formación en pilates reformer aplicado a la patología.</li>
-                      <li className="mt-2">📋 Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
+                      <li>Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector de la fisioterapia.</li>
+                      <li>Especialista en terapia manual y en terapia miofascial a la patología de espalda.</li>
+                      <li>Experto en fisioterapia deportiva y "return to play".</li>
+                      <li>Especialista en trabajo de la ATM (articulación temporomandibular).</li>
+                      <li>Especialista en terapia invasiva ecográfica (EPI y neuromodulación).</li>
+                      <li>Formación en pilates reformer aplicado a la patología.</li>
+                      <li>Cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, lesión del manguito rotador, dolor de cabeza.</li>
                     </ul>
                   </div>
                 </div>
