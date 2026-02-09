@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
@@ -13,6 +14,30 @@ import CookieConsent from '../components/Cookies.jsx';
 export default function FisioClinicLanding() {
   const [ivanOpen, setIvanOpen] = useState(false)
   const [antonioOpen, setAntonioOpen] = useState(false)
+  const [hoveredService, setHoveredService] = useState(null)
+
+  const serviciosDetalle = {
+    fisioterapia: {
+      titulo: "Fisioterapia personalizada",
+      descripcion: "Tratamientos individualizados basados en evidencia científica",
+      hover: "Recupera tu movilidad y elimina el dolor con tratamientos personalizados. Especializados en lesiones deportivas, dolores crónicos de espalda, cuello y articulaciones. Técnicas avanzadas adaptadas a tus necesidades para que vuelvas a tu vida normal lo antes posible."
+    },
+    osteopatia: {
+      titulo: "Osteopatía",
+      descripcion: "Técnicas manuales para el equilibrio corporal integral",
+      hover: "Recupera el equilibrio natural de tu cuerpo con osteopatía. Tratamiento efectivo para migrañas, dolor cervical, lumbar y problemas digestivos. Terapia manual especializada que identifica y trata la causa raíz de tu malestar, no solo los síntomas."
+    },
+    ecografia: {
+      titulo: "Ecografía musculoesquelética",
+      descripcion: "Diagnóstico por imagen para tratamientos precisos",
+      hover: "Diagnóstico preciso en tiempo real para tu lesión. Visualizamos tendones, músculos y articulaciones para identificar exactamente tu problema. Tratamiento guiado por ecografía para resultados más rápidos y efectivos. Tecnología de última generación al servicio de tu recuperación."
+    },
+    pilates: {
+      titulo: "Pilates terapéutico Reformer",
+      descripcion: "Ejercicio terapéutico con máquina especializada",
+      hover: "Fortalece tu cuerpo y previene futuras lesiones con Pilates Reformer. Sesiones personalizadas con máquina profesional para rehabilitar lesiones de espalda, mejorar tu postura y ganar flexibilidad. Ideal para complementar tu tratamiento de fisioterapia y mantener resultados a largo plazo."
+    }
+  }
 
   return (
     <>
@@ -123,45 +148,93 @@ export default function FisioClinicLanding() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 text-center">
-                <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Heart className="w-8 h-8 text-green-principal" />
-                </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-4">Fisioterapia personalizada</h3>
-                <p className="text-gray-600">Tratamientos individualizados basados en evidencia científica</p>
-              </CardContent>
-            </Card>
+            <Link to="/fisioterapia-personalizada" className="block">
+              <Card 
+                className="border-green-claro/20 hover:shadow-lg transition-all duration-300 cursor-pointer relative group h-full"
+                onMouseEnter={() => setHoveredService('fisioterapia')}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <CardContent className="p-8 mt-8 text-center">
+                  <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Heart className="w-8 h-8 text-green-principal" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-green-principal mb-4">{serviciosDetalle.fisioterapia.titulo}</h3>
+                  <p className="text-gray-600">{serviciosDetalle.fisioterapia.descripcion}</p>
+                  
+                  {/* Tooltip hover */}
+                  <div className={`absolute inset-0 bg-green-principal/95 text-white p-6 rounded-lg flex flex-col items-center justify-center transition-opacity duration-300 ${hoveredService === 'fisioterapia' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <p className="text-sm leading-relaxed mb-4">{serviciosDetalle.fisioterapia.hover}</p>
+                    <span className="text-xs font-semibold underline">Haz clic para saber más</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 text-center">
-                <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Stethoscope className="w-8 h-8 text-green-principal" />
-                </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-4">Osteopatía</h3>
-                <p className="text-gray-600">Técnicas manuales para el equilibrio corporal integral</p>
-              </CardContent>
-            </Card>
+            <Link to="/osteopatia" className="block">
+              <Card 
+                className="border-green-claro/20 hover:shadow-lg transition-all duration-300 cursor-pointer relative group h-full"
+                onMouseEnter={() => setHoveredService('osteopatia')}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <CardContent className="p-8 mt-8 text-center">
+                  <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Stethoscope className="w-8 h-8 text-green-principal" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-green-principal mb-4">{serviciosDetalle.osteopatia.titulo}</h3>
+                  <p className="text-gray-600">{serviciosDetalle.osteopatia.descripcion}</p>
+                  
+                  {/* Tooltip hover */}
+                  <div className={`absolute inset-0 bg-green-principal/95 text-white p-6 rounded-lg flex flex-col items-center justify-center transition-opacity duration-300 ${hoveredService === 'osteopatia' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <p className="text-sm leading-relaxed mb-4">{serviciosDetalle.osteopatia.hover}</p>
+                    <span className="text-xs font-semibold underline">Haz clic para saber más</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 text-center">
-                <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Activity className="w-8 h-8 text-green-principal" />
-                </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-4">Ecografía musculoesquelética</h3>
-                <p className="text-gray-600">Diagnóstico por imagen para tratamientos precisos</p>
-              </CardContent>
-            </Card>
+            <Link to="/ecografia-musculoesqueletica" className="block">
+              <Card 
+                className="border-green-claro/20 hover:shadow-lg transition-all duration-300 cursor-pointer relative group h-full"
+                onMouseEnter={() => setHoveredService('ecografia')}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <CardContent className="p-8 mt-8 text-center">
+                  <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Activity className="w-8 h-8 text-green-principal" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-green-principal mb-4">{serviciosDetalle.ecografia.titulo}</h3>
+                  <p className="text-gray-600">{serviciosDetalle.ecografia.descripcion}</p>
+                  
+                  {/* Tooltip hover */}
+                  <div className={`absolute inset-0 bg-green-principal/95 text-white p-6 rounded-lg flex flex-col items-center justify-center transition-opacity duration-300 ${hoveredService === 'ecografia' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <p className="text-sm leading-relaxed mb-4">{serviciosDetalle.ecografia.hover}</p>
+                    <span className="text-xs font-semibold underline">Haz clic para saber más</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="border-green-claro/20 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 mt-8 text-center">
-                <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-green-principal" />
-                </div>
-                <h3 className="text-xl font-semibold text-green-principal mb-4">Pilates terapéutico Reformer</h3>
-                <p className="text-gray-600">Ejercicio terapéutico con máquina especializada</p>
-              </CardContent>
-            </Card>
+            <Link to="/pilates-terapeutico" className="block">
+              <Card 
+                className="border-green-claro/20 hover:shadow-lg transition-all duration-300 cursor-pointer relative group h-full"
+                onMouseEnter={() => setHoveredService('pilates')}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <CardContent className="p-8 mt-8 text-center">
+                  <div className="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Users className="w-8 h-8 text-green-principal" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-green-principal mb-4">{serviciosDetalle.pilates.titulo}</h3>
+                  <p className="text-gray-600">{serviciosDetalle.pilates.descripcion}</p>
+                  
+                  {/* Tooltip hover */}
+                  <div className={`absolute inset-0 bg-green-principal/95 text-white p-6 rounded-lg flex flex-col items-center justify-center transition-opacity duration-300 ${hoveredService === 'pilates' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <p className="text-sm leading-relaxed mb-4">{serviciosDetalle.pilates.hover}</p>
+                    <span className="text-xs font-semibold underline">Haz clic para saber más</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
@@ -201,13 +274,13 @@ export default function FisioClinicLanding() {
             <div className="relative mt-12 lg:mt-0">
               <div className="grid grid-cols-2 gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
-                  alt="Ecógrafo profesional"
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
+                  alt="Fisioterapeuta realizando tratamiento manual"
                   className="rounded-2xl shadow-lg w-full h-auto"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
-                  alt="Técnicas manuales de fisioterapia"
+                  src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
+                  alt="Sesión de fisioterapia personalizada"
                   className="rounded-2xl shadow-lg mt-8 w-full h-auto"
                 />
               </div>

@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Phone, Calendar, Menu, X } from "lucide-react"
 import Logo_Full_verde from "../assets/Logo_Full_verde.png"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
     
   const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
+      }, 100);
+    } else {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
+    }
     setIsMenuOpen(false);
   }
 
@@ -15,9 +25,9 @@ export default function Header() {
     <>
       <header className="bg-white/90 shadow-sm border-b border-green-secundario sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <div className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <img src={Logo_Full_verde} alt="FisioClinic Logo" className="h-12 md:h-16" />
-          </div>
+          </Link>
           <nav className="hidden lg:flex flex-grow justify-center md:space-x-4 lg:space-x-14">
             <a onClick={() => scrollToSection('inicio')} className="cursor-pointer text-lg text-green-principal hover:text-green-secundario font-bold transition-colors">
               Inicio

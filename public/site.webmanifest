@@ -1,22 +1,27 @@
 {
-    "name": "FisioClinic Murcia",
+    "name": "FisioClinic Murcia - Fisioterapia, Osteopatía y Pilates",
     "short_name": "FisioClinic",
-    "description": "Tu centro de fisioterapia, osteopatía y pilates en Murcia.",
+    "description": "Centro de fisioterapia en Murcia centro, Av. Príncipe de Asturias 3. Fisioterapia personalizada, osteopatía, ecografía musculoesquelética y pilates Reformer.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "theme_color": "#00594C",
     "background_color": "#ffffff",
     "start_url": "/",
     "display": "standalone",
-    "scope": "/"
+    "scope": "/",
+    "lang": "es",
+    "dir": "ltr",
+    "categories": ["health", "medical"]
 }

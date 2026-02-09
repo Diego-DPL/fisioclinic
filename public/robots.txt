@@ -1,0 +1,9 @@
+# FisioClinic Murcia - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.fisioclinicmurcia.com/sitemap.xml
+
+# Bloquear archivos estáticos innecesarios para bots
+Disallow: /assets/politica-de-cookies.html
