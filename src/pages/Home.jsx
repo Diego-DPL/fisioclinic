@@ -8,7 +8,7 @@ import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCirc
 import antonioImg from "../assets/Antonio_Sanchez_Logo.jpg"
 import ivanImg from "../assets/Ivan_Muñoz_Logo.jpg"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
-import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
+import PilatesImg from "../assets/Pilapes.webp"
 import CookieConsent from '../components/Cookies.jsx';
 
 export default function FisioClinicLanding() {
@@ -75,14 +75,11 @@ export default function FisioClinicLanding() {
                         </Button> */}
                     </div>
                 </div>
-                <div className="relative mt-12 lg:mt-0 max-w-sm mx-auto">
+                <div className="relative mt-12 lg:mt-0 max-w-lg mx-auto">
                     <div className="absolute inset-0 bg-green-secundario/50 blur-md rounded-3xl transform scale-105"></div>
-                    <video
-                        src={VideoPromo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
+                    <img
+                        src={PilatesImg}
+                        alt="Pilates terapéutico Reformer en FisioClinic Murcia"
                         className="rounded-2xl shadow-lg w-full h-auto relative z-10"
                     />
                 </div>
