@@ -5,8 +5,8 @@ import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
 import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star } from "lucide-react"
-import antonioImg from "../assets/Antonio Sánchez (2).png"
-import ivanImg from "../assets/Ivan Muñoz (2).png"
+import antonioImg from "../assets/Antonio_Sanchez_Logo.jpg"
+import ivanImg from "../assets/Ivan_Muñoz_Logo.jpg"
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import VideoPromo from "../assets/Video_Promo_proxima_apertura.mp4"
 import CookieConsent from '../components/Cookies.jsx';
