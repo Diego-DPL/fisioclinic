@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex items-center">
-                <img src={Logo_Full_blanco} alt="FisioClinic Logo" className="h-16" />
+                <img src={Logo_Full_blanco} alt="FisioClinic Logo" className="h-16" width={196} height={64} loading="lazy" />
               </div>
             </div>
             <p className="text-white mb-4">Tu bienestar, nuestra prioridad.</p>

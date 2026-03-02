@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
@@ -16,6 +16,23 @@ export default function FisioClinicLanding() {
   const [ivanOpen, setIvanOpen] = useState(false)
   const [antonioOpen, setAntonioOpen] = useState(false)
   const [hoveredService, setHoveredService] = useState(null)
+  const [mapLoaded, setMapLoaded] = useState(false)
+  const mapRef = useRef(null)
+
+  // Lazy load Google Maps only when user scrolls near it
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMapLoaded(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    if (mapRef.current) observer.observe(mapRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   const serviciosDetalle = {
     fisioterapia: {
@@ -82,6 +99,10 @@ export default function FisioClinicLanding() {
                         src={PilatesImg}
                         alt="Pilates terapéutico Reformer en FisioClinic Murcia"
                         className="rounded-2xl shadow-lg w-full h-auto relative z-10"
+                        fetchPriority="high"
+                        width={800}
+                        height={600}
+                        decoding="sync"
                     />
                 </div>
                 </div>
@@ -100,17 +121,26 @@ export default function FisioClinicLanding() {
 
             <div className="max-w-6xl mx-auto">
             <Card className="overflow-hidden border-green-100 shadow-lg">
-                <div className="aspect-w-16 aspect-h-9">
-                <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.483987479918!2d-1.139888923679808!3d38.01258997192661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381c60718c38b%3A0x7c9b8b6b1b1b1b1b!2sAv.%20Pr%C3%ADncipe%20de%20Asturias%2C%203%2C%2030007%20Murcia!5e0!3m2!1ses!2ses!4v1620000000000"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de FisioClinic"
-                ></iframe>
+                <div ref={mapRef} className="aspect-w-16 aspect-h-9" style={{ minHeight: '450px' }}>
+                {mapLoaded ? (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.483987479918!2d-1.139888923679808!3d38.01258997192661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381c60718c38b%3A0x7c9b8b6b1b1b1b1b!2sAv.%20Pr%C3%ADncipe%20de%20Asturias%2C%203%2C%2030007%20Murcia!5e0!3m2!1ses!2ses!4v1620000000000"
+                    width="100%"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Ubicación de FisioClinic"
+                  ></iframe>
+                ) : (
+                  <div className="w-full h-[450px] bg-gray-200 rounded-lg flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <MapPin className="w-12 h-12 mx-auto mb-2 text-green-principal" />
+                      <p className="text-sm">Cargando mapa...</p>
+                    </div>
+                  </div>
+                )}
                 </div>
             </Card>
                 <div className="mt-6 text-center">
@@ -276,12 +306,16 @@ export default function FisioClinicLanding() {
                   alt="Ecógrafo profesional en FisioClinic Murcia"
                   loading="lazy"
                   className="rounded-2xl shadow-lg w-full h-auto"
+                  width={300}
+                  height={400}
                 />
                 <img
                   src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80"
                   alt="Sesión de fisioterapia personalizada"
                   loading="lazy"
                   className="rounded-2xl shadow-lg mt-8 w-full h-auto"
+                  width={250}
+                  height={300}
                 />
               </div>
             </div>
@@ -307,6 +341,8 @@ export default function FisioClinicLanding() {
                   alt="Antonio Sanchez Gonzalez"
                   loading="lazy"
                   className="w-full h-full object-cover object-top"
+                  width={437}
+                  height={310}
                 />
 
                 <div
@@ -355,6 +391,8 @@ export default function FisioClinicLanding() {
                   alt="Ivan Muñoz Garcia"
                   loading="lazy"
                   className="w-full h-full object-cover"
+                  width={437}
+                  height={310}
                 />
 
                 <div
