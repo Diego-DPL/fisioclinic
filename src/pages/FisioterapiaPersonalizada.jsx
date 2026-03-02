@@ -32,7 +32,7 @@ export default function FisioterapiaPersonalizada() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-marron-oscuro hover:bg-marron-claro text-white px-8 py-6 text-lg rounded-full"
+                className="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold"
                 onClick={() => window.open('https://go.fisiotrack.com', '_blank', 'noopener,noreferrer')}
               >
                 <Calendar className="mr-2 h-5 w-5" />
@@ -443,7 +443,7 @@ export default function FisioterapiaPersonalizada() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-marron-oscuro hover:bg-marron-claro text-white px-8 py-6 text-lg rounded-full"
+                className="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold"
                 onClick={() => window.open('https://go.fisiotrack.com', '_blank', 'noopener,noreferrer')}
               >
                 <Calendar className="mr-2 h-5 w-5" />

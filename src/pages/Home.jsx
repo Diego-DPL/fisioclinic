@@ -79,7 +79,7 @@ export default function FisioClinicLanding() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <Button
                             size="lg"
-                            className="bg-marron-oscuro hover:bg-marron-claro text-white px-8 py-4 text-lg rounded-full"
+                            className="bg-white hover:bg-gray-100 text-green-principal px-8 py-4 text-lg rounded-full font-bold"
                             onClick={() => window.open('https://go.fisiotrack.com', '_blank', 'noopener,noreferrer')}
                         >
                             Reserva tu cita
@@ -134,10 +134,10 @@ export default function FisioClinicLanding() {
                     title="Ubicación de FisioClinic"
                   ></iframe>
                 ) : (
-                  <div className="w-full h-[450px] bg-gray-200 rounded-lg flex items-center justify-center">
-                    <div className="text-center text-gray-500">
-                      <MapPin className="w-12 h-12 mx-auto mb-2 text-green-principal" />
-                      <p className="text-sm">Cargando mapa...</p>
+                  <div className="w-full h-[450px] bg-gray-100 rounded-lg flex items-center justify-center" role="status" aria-label="Cargando mapa">
+                    <div className="text-center text-gray-600">
+                      <MapPin className="w-12 h-12 mx-auto mb-2 text-green-principal" aria-hidden="true" />
+                      <p className="text-sm font-medium">Cargando mapa...</p>
                     </div>
                   </div>
                 )}
@@ -148,15 +148,15 @@ export default function FisioClinicLanding() {
                     <span className="font-semibold">Dirección:</span> Av. Príncipe de Asturias, 3, 30007, Murcia
                 </p>
                 <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="https://www.google.com/maps/dir//Av.+Pr%C3%ADncipe+de+Asturias,+3,+30007+Murcia/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0xd6381c60718c38b:0x7c9b8b6b1b1b1b1b?sa=X" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.google.com/maps/dir//Av.+Pr%C3%ADncipe+de+Asturias,+3,+30007+Murcia/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0xd6381c60718c38b:0x7c9b8b6b1b1b1b1b?sa=X" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de FisioClinic en Google Maps">
                     <Button className="bg-green-principal hover:bg-green-secundario text-white w-full sm:w-auto">
-                        <MapPin className="mr-2 h-4 w-4" /> Ver en Google Maps
+                        <MapPin className="mr-2 h-4 w-4" aria-hidden="true" /> Ver en Google Maps
                     </Button>
                     </a>
 
-                    <a href="https://maps.app.goo.gl/g6Gn9TWxyke6hghs5" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/g6Gn9TWxyke6hghs5" target="_blank" rel="noopener noreferrer" aria-label="Ver parking cercano a FisioClinic en Google Maps">
                     <Button variant="outline" className="border-green-principal text-green-principal hover:bg-green-secundario hover:border-green-secundario hover:text-white bg-transparent w-full sm:w-auto">
-                        <MapPin className="mr-2 h-4 w-4" /> Parking cercano
+                        <MapPin className="mr-2 h-4 w-4" aria-hidden="true" /> Parking cercano
                     </Button>
                     </a>
                 </div>

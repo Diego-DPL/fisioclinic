@@ -16,19 +16,21 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Header />
-        <Suspense fallback={
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-principal"></div>
-          </div>
-        }>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/fisioterapia-personalizada" element={<FisioterapiaPersonalizada />} />
-            <Route path="/osteopatia" element={<Osteopatia />} />
-            <Route path="/ecografia-musculoesqueletica" element={<EcografiaMusculoesqueletica />} />
-            <Route path="/pilates-terapeutico" element={<PilatesTerapeutico />} />
-          </Routes>
-        </Suspense>
+        <main id="main-content">
+          <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Cargando contenido">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-principal"></div>
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/fisioterapia-personalizada" element={<FisioterapiaPersonalizada />} />
+              <Route path="/osteopatia" element={<Osteopatia />} />
+              <Route path="/ecografia-musculoesqueletica" element={<EcografiaMusculoesqueletica />} />
+              <Route path="/pilates-terapeutico" element={<PilatesTerapeutico />} />
+            </Routes>
+          </Suspense>
+        </main>
         <Footer />
       </div>
     </Router>

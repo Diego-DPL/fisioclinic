@@ -6,7 +6,7 @@ export default function CookieNotice({ cookiesUrl = 'src/assets/politica-de-cook
   if (!visible) return null
 
   return (
-    <div role="dialog" aria-live="polite" className="fixed bottom-4 left-4 right-4 md:left-8 md:right-8 z-50">
+    <div role="dialog" aria-live="polite" aria-label="Aviso de cookies" className="fixed bottom-4 left-4 right-4 md:left-8 md:right-8 z-50">
       <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-sm text-gray-800">
           <p className="font-medium text-gray-900">Este sitio solo utiliza cookies técnicas necesarias para su funcionamiento.</p>

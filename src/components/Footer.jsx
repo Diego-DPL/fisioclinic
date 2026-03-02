@@ -19,13 +19,14 @@ export default function Footer() {
 
           <div>
             <h4 className="font-semibold mb-4">Contacto</h4>
-            <div className="space-y-2 text-gray-100">
+            <div className="space-y-2 text-white">
               <p>fisioclinicmurcia@gmail.com</p>
               <a
                 href="https://www.instagram.com/fisioclinicmurcia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-green-secundario transition-colors"
+                aria-label="Seguir a @fisioclinicmurcia en Instagram"
+                className="text-white underline hover:text-green-claro transition-colors"
               >
                 @fisioclinicmurcia
               </a>
@@ -40,15 +41,17 @@ export default function Footer() {
                 href="https://www.instagram.com/fisioclinicmurcia"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Síguenos en Instagram"
                 className="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
-                href="#"
+                href="mailto:fisioclinicmurcia@gmail.com"
+                aria-label="Enviar email a fisioclinicmurcia@gmail.com"
                 className="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
