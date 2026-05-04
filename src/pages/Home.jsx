@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 import { Card, CardContent } from "../components/ui/card"
-import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, ArrowRight, Phone, User } from "lucide-react"
+import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, ArrowRight, Phone, User, X } from "lucide-react"
 import antonioImg from "../assets/Antonio_Sanchez_Logo.webp"
 import ivanImg from "../assets/Ivan_Muñoz_Logo.webp"
 import PilatesImg from "../assets/Pilapes.webp"
@@ -343,7 +343,7 @@ export default function FisioClinicLanding() {
             {/* Antonio */}
             <div className="group">
               <Card className="border-0 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 rounded-3xl">
-                <CardContent className="p-0 relative overflow-hidden" style={{ height: '420px' }}>
+                <CardContent className="p-0 relative overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
                   <img
                     src={antonioImg}
                     alt="Antonio Sánchez González - Fisioterapeuta y Osteópata"
@@ -368,6 +368,14 @@ export default function FisioClinicLanding() {
                     role="region"
                     aria-labelledby="antonio-especialidades"
                   >
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); setAntonioOpen(false); }}
+                      className="absolute top-3 right-3 z-20 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center lg:hidden"
+                      aria-label="Cerrar información de Antonio"
+                    >
+                      <X className="w-4 h-4 text-gray-600" />
+                    </button>
                     <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto h-full p-6">
                       <h4 id="antonio-especialidades" className="text-lg font-bold text-green-principal">Antonio Sánchez</h4>
                       <p className="text-green-secundario text-sm font-medium mb-4">Fisioterapeuta & Osteópata</p>
@@ -404,7 +412,7 @@ export default function FisioClinicLanding() {
             {/* Iván */}
             <div className="group">
               <Card className="border-0 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 rounded-3xl">
-                <CardContent className="p-0 relative overflow-hidden" style={{ height: '420px' }}>
+                <CardContent className="p-0 relative overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
                   <img
                     src={ivanImg}
                     alt="Iván Muñoz García - Fisioterapeuta y Osteópata"
@@ -429,6 +437,14 @@ export default function FisioClinicLanding() {
                     role="region"
                     aria-labelledby="ivan-especialidades"
                   >
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); setIvanOpen(false); }}
+                      className="absolute top-3 right-3 z-20 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center lg:hidden"
+                      aria-label="Cerrar información de Iván"
+                    >
+                      <X className="w-4 h-4 text-gray-600" />
+                    </button>
                     <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto h-full p-6">
                       <h4 id="ivan-especialidades" className="text-lg font-bold text-green-principal">Iván Muñoz</h4>
                       <p className="text-green-secundario text-sm font-medium mb-4">Fisioterapeuta & Osteópata · Col. 2370</p>
