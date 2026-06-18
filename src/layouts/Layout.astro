@@ -8,12 +8,20 @@ interface Props {
   title?: string
   description?: string
   canonical?: string
+  ogTitle?: string
+  ogDescription?: string
+  jsonLd?: Record<string, unknown>[]
+  noindex?: boolean
 }
 
 const {
   title = 'FisioClinic Murcia Centro - Fisioterapia, Osteopatía y Pilates',
   description = 'Centro de fisioterapia en Murcia centro, Av. Príncipe de Asturias 3, cerca del Zigzag. Fisioterapia personalizada, osteopatía, ecografía musculoesquelética y pilates Reformer. ¡Reserva cita!',
   canonical = 'https://www.fisioclinicmurcia.com/',
+  ogTitle = title,
+  ogDescription = description,
+  jsonLd = [],
+  noindex = false,
 } = Astro.props
 ---
 
@@ -52,7 +60,7 @@ const {
       content="fisioterapia murcia centro, fisioterapeuta murcia, osteopata murcia, pilates reformer murcia, ecografia musculoesqueletica murcia, fisioterapia principe de asturias murcia, fisio cerca zigzag murcia, rehabilitacion murcia, dolor espalda murcia, hernia discal murcia"
     />
     <meta name="author" content="FisioClinic Murcia" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="geo.region" content="ES-MU" />
     <meta name="geo.placename" content="Murcia" />
     <meta name="geo.position" content="38.012589;-1.139888" />
@@ -60,22 +68,17 @@ const {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content="FisioClinic Murcia Centro - Fisioterapia y Osteopatía en Av. Príncipe de Asturias" />
-    <meta
-      property="og:description"
-      content="Centro de fisioterapia en Murcia centro, Av. Príncipe de Asturias 3, cerca del Zigzag. Fisioterapia personalizada, osteopatía, ecografía y pilates Reformer. ¡Reserva cita!"
-    />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content="https://www.fisioclinicmurcia.com/og-image.png" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="FisioClinic Murcia" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonical} />
-    <meta property="twitter:title" content="FisioClinic Murcia Centro - Fisioterapia y Osteopatía" />
-    <meta
-      property="twitter:description"
-      content="Centro de fisioterapia en Murcia centro, Av. Príncipe de Asturias 3, cerca del Zigzag. Fisioterapia personalizada, osteopatía, ecografía y pilates Reformer."
-    />
+    <meta property="twitter:title" content={ogTitle} />
+    <meta property="twitter:description" content={ogDescription} />
     <meta property="twitter:image" content="https://www.fisioclinicmurcia.com/og-image.png" />
 
     <!-- JSON-LD Structured Data -->
@@ -133,6 +136,11 @@ const {
         inLanguage: 'es',
       })}
     />
+    {
+      jsonLd.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
   </head>
   <body>
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>

@@ -55,12 +55,32 @@ const tabla = [
   { c: 'Radiación', eco: '✓ Sin radiación', rx: '✗ Rayos X', rm: '✓ Sin radiación' },
   { c: 'Guía tratamientos', eco: '✓ Sí', rx: '✗ No', rm: '✗ No' },
 ]
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fisioclinicmurcia.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Ecografía musculoesquelética', item: 'https://www.fisioclinicmurcia.com/ecografia-musculoesqueletica' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: 'Ecografía Musculoesquelética en Murcia',
+    url: 'https://www.fisioclinicmurcia.com/ecografia-musculoesqueletica',
+    inLanguage: 'es',
+    about: { '@type': 'MedicalTest', name: 'Ecografía musculoesquelética' },
+    provider: { '@type': 'Physiotherapy', name: 'FisioClinic Murcia', '@id': 'https://www.fisioclinicmurcia.com/#organization' },
+  },
+]
 ---
 
 <Layout
   title="Ecografía Musculoesquelética en Murcia | Diagnóstico Preciso Av. Príncipe de Asturias"
   description="Ecografía musculoesquelética en Murcia centro. Diagnóstico preciso de tendones, músculos y ligamentos. Tratamiento guiado por imagen. Centro cerca del Zigzag."
   canonical="https://www.fisioclinicmurcia.com/ecografia-musculoesqueletica"
+  jsonLd={jsonLd}
 >
   {/* Hero */}
   <section class="bg-green-principal py-16 md:py-24">

@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Home, Phone } from 'lucide-react'
+
+const servicios = [
+  { label: 'Fisioterapia personalizada', href: '/fisioterapia-personalizada' },
+  { label: 'Osteopatía', href: '/osteopatia' },
+  { label: 'Ecografía musculoesquelética', href: '/ecografia-musculoesqueletica' },
+  { label: 'Pilates terapéutico Reformer', href: '/pilates-terapeutico' },
+]
+---
+
+<Layout
+  title="Página no encontrada (404) | FisioClinic Murcia"
+  description="La página que buscas no existe. Vuelve al inicio o descubre nuestros servicios de fisioterapia, osteopatía y pilates en Murcia."
+  canonical="https://www.fisioclinicmurcia.com/404"
+  noindex={true}
+>
+  <section class="bg-green-principal py-20 md:py-28">
+    <div class="container mx-auto px-4 text-center">
+      <p class="font-display text-7xl md:text-8xl font-medium text-green-claro mb-4">404</p>
+      <h1 class="font-display text-3xl md:text-4xl font-medium text-white mb-4">Esta página no existe</h1>
+      <p class="text-lg text-white/80 max-w-xl mx-auto mb-8">
+        Puede que el enlace esté roto o que la página se haya movido. Te dejamos por dónde seguir:
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a href="/" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-green-principal font-bold text-lg shadow-lg hover:bg-green-claro transition-all duration-300">
+          <Home className="w-5 h-5" /> Volver al inicio
+        </a>
+        <a href="https://wa.me/+34684708394" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/15 border border-white/40 text-white font-bold text-lg hover:bg-white/25 transition-all duration-300">
+          <Phone className="w-5 h-5" /> 684 708 394
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center">
+        {servicios.map((s) => (
+          <a href={s.href} class="text-white/80 hover:text-green-claro underline underline-offset-4 text-sm transition-colors">{s.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

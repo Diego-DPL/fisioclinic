@@ -59,12 +59,32 @@ const ventajas = [
   { icon: MapPin, titulo: 'Centro en Murcia Centro', desc: 'Av. Príncipe de Asturias 3, cerca del Zigzag. Fácil acceso en transporte público y parking cercano disponible.' },
   { icon: Heart, titulo: 'Tratamiento Integral', desc: 'Combinamos osteopatía con fisioterapia y ejercicio terapéutico para resultados óptimos y duraderos.' },
 ]
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fisioclinicmurcia.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Osteopatía', item: 'https://www.fisioclinicmurcia.com/osteopatia' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: 'Osteopatía en Murcia Centro',
+    url: 'https://www.fisioclinicmurcia.com/osteopatia',
+    inLanguage: 'es',
+    about: { '@type': 'MedicalTherapy', name: 'Osteopatía' },
+    provider: { '@type': 'Physiotherapy', name: 'FisioClinic Murcia', '@id': 'https://www.fisioclinicmurcia.com/#organization' },
+  },
+]
 ---
 
 <Layout
   title="Osteopatía en Murcia Centro | Tratamiento Holístico Av. Príncipe de Asturias"
   description="Osteopatía profesional en Murcia centro, Av. Príncipe de Asturias 3. Tratamiento de migrañas, dolor cervical, lumbar y problemas digestivos. Centro cerca del Zigzag. Reserva cita."
   canonical="https://www.fisioclinicmurcia.com/osteopatia"
+  jsonLd={jsonLd}
 >
   {/* Hero */}
   <section class="bg-green-principal py-16 md:py-24">

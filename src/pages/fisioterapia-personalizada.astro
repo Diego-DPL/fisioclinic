@@ -36,12 +36,32 @@ const ventajas = [
   { icon: MapPin, titulo: 'Ubicación Céntrica en Murcia', desc: 'Situados en Av. Príncipe de Asturias 3, cerca del Zigzag en pleno centro de Murcia. Fácil acceso y parking cercano para tu comodidad.' },
   { icon: Clock, titulo: 'Atención Rápida', desc: 'Ofrecemos citas el mismo día o en 24-48 horas. No esperes semanas con dolor, te atendemos cuando más lo necesitas.' },
 ]
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fisioclinicmurcia.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Fisioterapia personalizada', item: 'https://www.fisioclinicmurcia.com/fisioterapia-personalizada' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: 'Fisioterapia Personalizada en Murcia Centro',
+    url: 'https://www.fisioclinicmurcia.com/fisioterapia-personalizada',
+    inLanguage: 'es',
+    about: { '@type': 'MedicalTherapy', name: 'Fisioterapia personalizada' },
+    provider: { '@type': 'Physiotherapy', name: 'FisioClinic Murcia', '@id': 'https://www.fisioclinicmurcia.com/#organization' },
+  },
+]
 ---
 
 <Layout
   title="Fisioterapia Personalizada en Murcia Centro | FisioClinic Av. Príncipe de Asturias"
   description="Fisioterapia personalizada en Murcia centro, Av. Príncipe de Asturias 3, cerca del Zigzag. Tratamiento individualizado para lesiones deportivas, dolor de espalda y rehabilitación. ¡Reserva cita!"
   canonical="https://www.fisioclinicmurcia.com/fisioterapia-personalizada"
+  jsonLd={jsonLd}
 >
   {/* Hero Section */}
   <section class="bg-green-principal py-16 md:py-24">

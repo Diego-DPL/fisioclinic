@@ -65,12 +65,32 @@ const ventajas = [
   { icon: Dumbbell, titulo: 'Equipamiento Profesional', desc: 'Máquina Reformer de alta calidad en perfectas condiciones. Espacio amplio, luminoso y climatizado para tu comodidad.' },
   { icon: MapPin, titulo: 'Centro en Av. Príncipe de Asturias', desc: 'Ubicación céntrica en Murcia, cerca del Zigzag. Fácil acceso y horarios flexibles para adaptarnos a tu rutina.' },
 ]
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fisioclinicmurcia.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Pilates terapéutico Reformer', item: 'https://www.fisioclinicmurcia.com/pilates-terapeutico' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: 'Pilates Terapéutico Reformer en Murcia',
+    url: 'https://www.fisioclinicmurcia.com/pilates-terapeutico',
+    inLanguage: 'es',
+    about: { '@type': 'MedicalTherapy', name: 'Pilates terapéutico' },
+    provider: { '@type': 'Physiotherapy', name: 'FisioClinic Murcia', '@id': 'https://www.fisioclinicmurcia.com/#organization' },
+  },
+]
 ---
 
 <Layout
   title="Pilates Terapéutico Reformer en Murcia | FisioClinic Av. Príncipe de Asturias"
   description="Pilates terapéutico con máquina Reformer en Murcia centro. Sesiones individuales, en pareja o grupos reducidos (máx. 6) por niveles. Av. Príncipe de Asturias 3, cerca del Zigzag."
   canonical="https://www.fisioclinicmurcia.com/pilates-terapeutico"
+  jsonLd={jsonLd}
 >
   {/* Hero */}
   <section class="bg-green-principal py-16 md:py-24">

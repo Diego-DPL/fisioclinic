@@ -5,5 +5,5 @@ Allow: /
 # Sitemap
 Sitemap: https://www.fisioclinicmurcia.com/sitemap.xml
 
-# Bloquear archivos estáticos innecesarios para bots
-Disallow: /assets/politica-de-cookies.html
+# Páginas legales de bajo valor para indexación
+Disallow: /politica-de-cookies.html
