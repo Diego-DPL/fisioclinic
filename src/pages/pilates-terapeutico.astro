@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Card from '../components/Card.astro'
+import CardContent from '../components/CardContent.astro'
+import { CheckCircle, Users, Clock, Award, MapPin, Phone, Calendar, Heart, Dumbbell, Target } from 'lucide-react'
+
+const reformerItems = [
+  '<strong>Resistencia ajustable:</strong> De muy suave a muy intensa según necesidad',
+  '<strong>Bajo impacto:</strong> Protege articulaciones durante el fortalecimiento',
+  '<strong>Versátil:</strong> Trabajo de todo el cuerpo desde cualquier posición',
+]
+
+const beneficios = [
+  { titulo: 'Fortalece la Musculatura Profunda', descripcion: 'Activa y fortalece los músculos estabilizadores de columna y pelvis, mejorando el soporte interno del cuerpo' },
+  { titulo: 'Corrige la Postura', descripcion: 'Mejora la alineación corporal, reduce cifosis dorsal, corrige hiperlordosis lumbar y equilibra hombros' },
+  { titulo: 'Reduce el Dolor de Espalda', descripcion: 'Eficaz en lumbalgia crónica, cervicalgia y dolor dorsal mediante fortalecimiento del core y movilidad vertebral' },
+  { titulo: 'Aumenta la Flexibilidad', descripcion: 'Mejora el rango de movimiento articular sin forzar, ideal para personas con rigidez o limitaciones' },
+  { titulo: 'Mejora el Equilibrio', descripcion: 'Desarrolla propiocepción y estabilidad, fundamental para prevenir caídas en personas mayores' },
+  { titulo: 'Previene Lesiones', descripcion: 'Fortalece zonas débiles, corrige desbalances musculares y prepara el cuerpo para actividades deportivas' },
+  { titulo: 'Rehabilita Lesiones', descripcion: 'Recuperación post-operatoria, hernias discales, prótesis de cadera/rodilla, lesiones deportivas' },
+  { titulo: 'Control del Movimiento', descripcion: 'Mejora coordinación, calidad de movimiento y conciencia corporal en cada gesto' },
+  { titulo: 'Bajo Impacto Articular', descripcion: 'Ideal para artrosis, osteoporosis o personas con limitaciones que no pueden hacer ejercicio intenso' },
+  { titulo: 'Fortalece sin Hipertrofiar', descripcion: 'Músculos tonificados y funcionales sin volumen excesivo, aspecto estilizado' },
+  { titulo: 'Mejora la Respiración', descripcion: 'Trabajo específico del diafragma y músculos respiratorios, reduce ansiedad y mejora oxigenación' },
+  { titulo: 'Suelo Pélvico', descripcion: 'Fortalecimiento del suelo pélvico en embarazo, postparto, incontinencia o prolapsos' },
+]
+
+const conLesion = [
+  '<strong>Hernias discales lumbares o cervicales</strong> (fortalecimiento sin impacto)',
+  '<strong>Dolor crónico de espalda</strong> que no mejora con tratamientos pasivos',
+  '<strong>Escoliosis</strong> que necesita fortalecimiento asimétrico compensatorio',
+  '<strong>Post-cirugía ortopédica</strong> (prótesis, ligamentos, meniscos)',
+  '<strong>Lesiones deportivas</strong> en fase de rehabilitación activa',
+  '<strong>Síndrome cruzado</strong> (desequilibrios posturales)',
+]
+
+const sanas = [
+  '<strong>Deportistas</strong> que quieren mejorar rendimiento y prevenir lesiones',
+  '<strong>Personas sedentarias</strong> con trabajos de oficina y mala postura',
+  '<strong>Embarazadas</strong> para preparación al parto y fortalecimiento',
+  '<strong>Postparto</strong> para recuperación abdominal y suelo pélvico',
+  '<strong>Personas mayores</strong> para mantenerse activos y prevenir caídas',
+  '<strong>Cualquiera</strong> que quiera ejercicio seguro, efectivo y supervisado',
+]
+
+const tabla = [
+  { c: 'Supervisión', ter: 'Fisioterapeuta (individual, pareja o grupos máx. 6)', tra: 'Instructor grupos de 10-20' },
+  { c: 'Personalización', ter: '100% adaptado a ti', tra: 'Ejercicios generales para todos' },
+  { c: 'Enfoque', ter: 'Terapéutico/Rehabilitador', tra: 'Fitness/Bienestar' },
+  { c: 'Evaluación inicial', ter: 'Valoración clínica completa', tra: 'Cuestionario básico' },
+  { c: 'Con patología/dolor', ter: '✓ Indicado y seguro', tra: '✗ Puede empeorar' },
+  { c: 'Seguimiento', ter: 'Evolución controlada sesión a sesión', tra: 'Sin seguimiento individual' },
+  { c: 'Conocimiento anatómico', ter: 'Fisioterapeuta especializado', tra: 'Instructor certificado Pilates' },
+]
+
+const sesiones = [
+  { num: '1', titulo: 'Primera Sesión: Evaluación (60 min)', intro: 'En tu primera visita realizamos una <strong>valoración completa</strong>: historial médico, análisis postural, test de movilidad y fuerza. Diseñamos tu programa personalizado.', items: ['Conocemos tu caso en profundidad', 'Establecemos objetivos realistas', 'Te enseñamos la máquina Reformer'] },
+  { num: '2', titulo: 'Sesiones Regulares (50-55 min)', intro: 'Elige la modalidad que mejor se adapte a ti: <strong>individual</strong>, en <strong>pareja</strong> o en <strong>grupos reducidos (máx. 6 personas)</strong> organizados por niveles. Trabajamos todo el cuerpo con énfasis en tus zonas problemáticas, con progresión gradual y ajustes continuos.', items: ['5 min calentamiento y movilidad', '40 min trabajo en Reformer', '5 min estiramientos y vuelta a la calma'] },
+  { num: '3', titulo: 'Frecuencia Recomendada', intro: 'Para obtener <strong>resultados óptimos</strong> recomendamos una frecuencia de 2-3 sesiones por semana, aunque adaptamos a tu disponibilidad.', items: ['1x semana: Mantenimiento', '2x semana: Resultados progresivos', '3x semana: Recuperación intensiva'] },
+]
+
+const ventajas = [
+  { icon: Award, titulo: 'Fisioterapeutas Certificados', desc: 'Profesionales con formación específica en Pilates Reformer aplicado a patología. No somos solo instructores, somos terapeutas.' },
+  { icon: Dumbbell, titulo: 'Equipamiento Profesional', desc: 'Máquina Reformer de alta calidad en perfectas condiciones. Espacio amplio, luminoso y climatizado para tu comodidad.' },
+  { icon: MapPin, titulo: 'Centro en Av. Príncipe de Asturias', desc: 'Ubicación céntrica en Murcia, cerca del Zigzag. Fácil acceso y horarios flexibles para adaptarnos a tu rutina.' },
+]
+---
+
+<Layout
+  title="Pilates Terapéutico Reformer en Murcia | FisioClinic Av. Príncipe de Asturias"
+  description="Pilates terapéutico con máquina Reformer en Murcia centro. Sesiones individuales, en pareja o grupos reducidos (máx. 6) por niveles. Av. Príncipe de Asturias 3, cerca del Zigzag."
+  canonical="https://www.fisioclinicmurcia.com/pilates-terapeutico"
+>
+  {/* Hero */}
+  <section class="bg-green-principal py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-green-claro/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+          Ejercicio Terapéutico Especializado
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Pilates Terapéutico Reformer en Murcia</h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          Fortalece tu cuerpo, corrige tu postura y previene lesiones con Pilates Reformer supervisado por fisioterapeutas especializados.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reserva tu Clase
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent">
+            <Phone className="mr-2 h-5 w-5" />
+            Prueba Gratuita
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Ubicación destacada */}
+  <section class="py-8 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-6 text-green-principal">
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Av. Príncipe de Asturias 3, Murcia Centro</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Dumbbell className="h-5 w-5" />
+          <span class="font-medium">Máquina Reformer Profesional</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Users className="h-5 w-5" />
+          <span class="font-medium">Individual, Pareja o Grupos (máx. 6)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Qué es */}
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-6">¿Qué es el Pilates Terapéutico Reformer?</h2>
+          <div class="w-24 h-1 bg-green-claro mx-auto mb-6"></div>
+        </div>
+        <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <p class="text-xl leading-relaxed">
+            El <strong>Pilates Terapéutico con máquina Reformer</strong> es un método de ejercicio controlado que combina fortalecimiento, flexibilidad y control motor, adaptado específicamente a <strong>rehabilitar lesiones y prevenir problemas futuros</strong>.
+          </p>
+          <p class="text-lg leading-relaxed">
+            En <strong>FisioClinic Murcia</strong> (Av. Príncipe de Asturias 3, cerca del Zigzag) ofrecemos <strong>tres modalidades</strong>: sesiones <strong>individuales</strong>, en <strong>pareja</strong> o en <strong>grupos reducidos de máximo 6 personas</strong> organizados por niveles. Siempre bajo la supervisión de un fisioterapeuta especializado que adapta cada ejercicio a tu patología, nivel y objetivos específicos.
+          </p>
+          <Card class="bg-green-secundario/10 border-green-claro/30 my-8">
+            <CardContent class="p-8">
+              <h3 class="text-2xl font-bold text-green-principal mb-4 flex items-center">
+                <Dumbbell className="mr-3 h-7 w-7 text-green-claro" />
+                ¿Qué es la Máquina Reformer?
+              </h3>
+              <p class="text-lg text-gray-700 mb-4">
+                El <strong>Reformer</strong> es una máquina profesional de Pilates que utiliza un sistema de muelles, poleas y plataforma deslizante para crear resistencia variable. Permite realizar más de 100 ejercicios diferentes adaptados a cualquier nivel y condición física.
+              </p>
+              <ul class="space-y-3 text-lg text-gray-700">
+                {reformerItems.map((r) => (
+                  <li class="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                    <span set:html={r} />
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <p class="text-lg leading-relaxed">
+            La diferencia clave del <strong>Pilates Terapéutico</strong> es que está dirigido por fisioterapeutas que conocen anatomía, biomecánica y patología. No es solo ejercicio, es <strong>tratamiento activo y preventivo</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Beneficios */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Beneficios del Pilates Terapéutico Reformer</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">Resultados comprobados en rehabilitación, fortalecimiento y prevención de lesiones</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {beneficios.map((b, i) => (
+            <div data-reveal style={`transition-delay:${(i % 3) * 90}ms`}>
+              <Card class="border-green-claro/20 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 bg-green-claro/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-6 h-6 text-green-principal" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-green-principal mb-2">{b.titulo}</h3>
+                      <p class="text-gray-600 text-sm">{b.descripcion}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Para quién */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">¿Para Quién es el Pilates Terapéutico?</h2>
+          <p class="text-xl text-gray-600">Adaptamos el Pilates Reformer a tu situación específica, seas quien seas</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div data-reveal>
+            <Card class="border-green-claro/30 hover:shadow-xl transition-shadow h-full">
+              <CardContent class="p-8">
+                <h3 class="text-2xl font-semibold text-green-principal mb-6 flex items-center">
+                  <Users className="mr-3 h-7 w-7 text-green-claro" />
+                  Personas con Dolor o Lesión
+                </h3>
+                <ul class="space-y-3 text-gray-700">
+                  {conLesion.map((item) => (
+                    <li class="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                      <span set:html={item} />
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <div data-reveal style="transition-delay:100ms">
+            <Card class="border-green-claro/30 hover:shadow-xl transition-shadow h-full">
+              <CardContent class="p-8">
+                <h3 class="text-2xl font-semibold text-green-principal mb-6 flex items-center">
+                  <Target className="mr-3 h-7 w-7 text-green-claro" />
+                  Personas Sanas (Prevención)
+                </h3>
+                <ul class="space-y-3 text-gray-700">
+                  {sanas.map((item) => (
+                    <li class="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                      <span set:html={item} />
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Diferencias */}
+  <section class="py-16 md:py-20 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Pilates Terapéutico vs Pilates Tradicional</h2>
+          <p class="text-xl text-gray-600">Entender por qué el enfoque terapéutico marca la diferencia</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full bg-white rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-green-principal text-white">
+              <tr>
+                <th class="p-4 text-left">Característica</th>
+                <th class="p-4 text-center">Pilates Terapéutico</th>
+                <th class="p-4 text-center">Pilates Tradicional</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              {tabla.map((row, i) => (
+                <tr class={i % 2 === 1 ? 'bg-gray-50' : ''}>
+                  <td class="p-4 font-medium">{row.c}</td>
+                  <td class="p-4 text-center text-green-600 font-semibold">{row.ter}</td>
+                  <td class="p-4 text-center">{row.tra}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Cómo es una sesión */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">¿Cómo es una Sesión de Pilates Reformer?</h2>
+          <p class="text-xl text-gray-600">Qué esperar en tu primera clase en FisioClinic Murcia</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          {sesiones.map((s, i) => (
+            <div data-reveal style={`transition-delay:${i * 90}ms`}>
+              <Card class="border-green-claro/30 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-8">
+                  <div class="flex items-start space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-green-principal rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">{s.num}</div>
+                    <div>
+                      <h3 class="text-xl font-semibold text-green-principal mb-2">{s.titulo}</h3>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 mb-4" set:html={s.intro} />
+                  <ul class="space-y-2 text-gray-600 text-sm">
+                    {s.items.map((item) => (
+                      <li class="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-green-secundario mr-2 mt-1 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <div data-reveal>
+          <Card class="bg-green-secundario/10 border-green-claro/30">
+            <CardContent class="p-8 text-center">
+              <Heart className="w-12 h-12 text-green-principal mx-auto mb-4" />
+              <h3 class="text-2xl font-semibold text-green-principal mb-3">Resultados Visibles en 10-12 Sesiones</h3>
+              <p class="text-gray-700 text-lg">La mayoría de pacientes notan mejora significativa en postura, dolor y fuerza después de 2-3 meses de práctica regular.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Por qué elegirnos */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Pilates Reformer Profesional en Murcia Centro</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {ventajas.map((v, i) => {
+            const Icon = v.icon
+            return (
+              <div data-reveal style={`transition-delay:${i * 90}ms`}>
+                <Card class="border-green-claro/20 hover:shadow-lg transition-shadow text-center h-full">
+                  <CardContent class="p-8">
+                    <div class="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-green-principal" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-principal mb-4">{v.titulo}</h3>
+                    <p class="text-gray-600">{v.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Final */}
+  <section class="py-16 md:py-20 bg-green-principal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Fortalece tu Cuerpo, Previene Lesiones</h2>
+        <p class="text-xl text-white/90 mb-8">Reserva tu sesión de Pilates Terapéutico Reformer. Primera clase valorativa gratuita para conocer el método.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reservar Primera Clase
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent w-full">
+            Más Información
+          </Button>
+        </div>
+        <p class="text-white/80 mt-6">📍 Av. Príncipe de Asturias 3 - Murcia Centro (cerca del Zigzag) | 💪 Máquina Reformer Profesional</p>
+      </div>
+    </div>
+  </section>
+</Layout>

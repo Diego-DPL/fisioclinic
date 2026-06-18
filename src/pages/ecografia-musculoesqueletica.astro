@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Card from '../components/Card.astro'
+import CardContent from '../components/CardContent.astro'
+import { CheckCircle, Activity, Clock, Award, MapPin, Phone, Calendar, Eye, Target } from 'lucide-react'
+
+const ventajas = [
+  '<strong>Diagnóstico preciso:</strong> Vemos exactamente qué tejido está dañado',
+  '<strong>No invasivo y sin radiación:</strong> Totalmente seguro, sin efectos secundarios',
+  '<strong>Tiempo real:</strong> Evaluación dinámica del movimiento y la lesión',
+  '<strong>Guía para tratamiento:</strong> Permite aplicar técnicas invasivas con precisión',
+]
+
+const detectamos = [
+  { titulo: 'Tendinitis y Tendinosis', descripcion: 'Inflamación o degeneración de tendones: rotuliano, aquiles, manguito rotador, epicondilitis' },
+  { titulo: 'Roturas Musculares', descripcion: 'Roturas fibrilares, desgarros musculares, hematomas intramuscular es' },
+  { titulo: 'Lesiones de Ligamentos', descripcion: 'Esguinces, roturas parciales o totales de ligamentos de tobillo, rodilla, etc.' },
+  { titulo: 'Bursitis', descripcion: 'Inflamación de bursas en hombro, cadera, rodilla o codo' },
+  { titulo: 'Fascitis Plantar', descripcion: 'Visualización del grosor de la fascia y presencia de calcificaciones' },
+  { titulo: 'Síndrome del Túnel Carpiano', descripcion: 'Compresión del nervio mediano a nivel de la muñeca' },
+  { titulo: 'Rotura del Manguito Rotador', descripcion: 'Roturas parciales o completas de los tendones del hombro' },
+  { titulo: 'Quistes y Gangliones', descripcion: 'Formaciones quísticas en articulaciones o tendones' },
+  { titulo: 'Calcificaciones Tendinosas', descripcion: 'Depósitos de calcio en tendones que causan dolor' },
+  { titulo: 'Hernias y Protrusiones', descripcion: 'Hernias abdominales, inguinales o de pared abdominal' },
+  { titulo: 'Sinovitis Articular', descripcion: 'Inflamación del tejido sinovial dentro de las articulaciones' },
+  { titulo: 'Neuropatías Compresivas', descripcion: 'Atrapamientos nerviosos: ciático, cubital, radial, etc.' },
+]
+
+const proceso = [
+  { num: '1', titulo: 'Valoración Clínica', desc: 'Primero realizamos una evaluación física completa para identificar la zona problemática y establecer una hipótesis diagnóstica.' },
+  { num: '2', titulo: 'Exploración Ecográfica', desc: 'Aplicamos gel conductor y exploramos la zona con el ecógrafo, visualizando tendones, músculos, ligamentos y estructuras nerviosas en tiempo real.' },
+  { num: '3', titulo: 'Análisis de Imagen', desc: 'Interpretamos las imágenes ecográficas identificando alteraciones en la ecogenicidad, grosor, vascularización o integridad de los tejidos.' },
+  { num: '4', titulo: 'Plan de Tratamiento', desc: 'Con el diagnóstico confirmado, diseñamos un tratamiento específico y preciso, pudiendo aplicar técnicas ecoguiadas si es necesario.' },
+]
+
+const tratamientos = [
+  { icon: Target, titulo: 'Punción Seca Ecoguiada', intro: 'Tratamiento de puntos gatillo miofasciales con visualización directa de la aguja, músculos y nervios para máxima seguridad y efectividad.', items: ['Mayor precisión en puntos gatillo profundos', 'Evitamos estructuras nerviosas y vasculares', 'Resultados más rápidos y seguros'] },
+  { icon: Activity, titulo: 'Electrolisis Percutánea (EPI)', intro: 'Técnica invasiva que aplica corriente galvánica directamente en el tejido dañado para regeneración acelerada de tendones y ligamentos.', items: ['Eficaz en tendinitis crónicas resistentes', 'Visualización directa del tendón afectado', 'Reduce tiempo de recuperación significativamente'] },
+  { icon: Eye, titulo: 'Neuromodulación Ecoguiada', intro: 'Estimulación de nervios periféricos mediante agujas de acupuntura y corriente eléctrica para tratar dolor neuropático y radiculopatías.', items: ['Tratamiento de ciática y dolor irradiado', 'Localización exacta del nervio afectado', 'Efectivo en neuralgias y atrapamientos nerviosos'] },
+  { icon: Target, titulo: 'Hidrodisección Neural', intro: 'Liberación de nervios atrapados mediante infiltración de suero fisiológico guiada por ecografía para separarlos del tejido circundante.', items: ['Túnel carpiano, túnel cubital, nervio ciático', 'Alternativa conservadora a la cirugía', 'Mínimamente invasivo y sin cicatrices'] },
+]
+
+const ventajasCentro = [
+  { icon: Award, titulo: 'Máster en Ecografía', desc: 'Formación especializada en ecografía musculoesquelética y fisioterapia invasiva ecoguiada. Años de experiencia interpretando imágenes.' },
+  { icon: Activity, titulo: 'Tecnología de Última Generación', desc: 'Ecógrafo de alta resolución con sondas lineales de alta frecuencia para visualización óptima de estructuras musculoesqueléticas.' },
+  { icon: MapPin, titulo: 'Centro en Av. Príncipe de Asturias', desc: 'Ubicados en pleno centro de Murcia, cerca del Zigzag. Diagnóstico inmediato sin listas de espera largas como en hospitales.' },
+]
+
+const tabla = [
+  { c: 'Tiempo de espera', eco: 'Inmediato', rx: 'Días', rm: 'Semanas/Meses' },
+  { c: 'Coste', eco: 'Económico', rx: 'Económico', rm: 'Alto' },
+  { c: 'Visualiza tejidos blandos', eco: '✓ Excelente', rx: '✗ No', rm: '✓ Sí' },
+  { c: 'Evaluación dinámica', eco: '✓ Tiempo real', rx: '✗ No', rm: '✗ No' },
+  { c: 'Radiación', eco: '✓ Sin radiación', rx: '✗ Rayos X', rm: '✓ Sin radiación' },
+  { c: 'Guía tratamientos', eco: '✓ Sí', rx: '✗ No', rm: '✗ No' },
+]
+---
+
+<Layout
+  title="Ecografía Musculoesquelética en Murcia | Diagnóstico Preciso Av. Príncipe de Asturias"
+  description="Ecografía musculoesquelética en Murcia centro. Diagnóstico preciso de tendones, músculos y ligamentos. Tratamiento guiado por imagen. Centro cerca del Zigzag."
+  canonical="https://www.fisioclinicmurcia.com/ecografia-musculoesqueletica"
+>
+  {/* Hero */}
+  <section class="bg-green-principal py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-green-claro/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+          Tecnología Diagnóstica Avanzada
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Ecografía Musculoesquelética en Murcia</h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          Diagnóstico preciso en tiempo real para tu lesión. Visualiza exactamente qué está fallando para un tratamiento más efectivo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Solicita tu Ecografía
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent">
+            <Phone className="mr-2 h-5 w-5" />
+            Consulta Casos Dudosos
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Ubicación destacada */}
+  <section class="py-8 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-6 text-green-principal">
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Av. Príncipe de Asturias 3, Murcia Centro</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Activity className="h-5 w-5" />
+          <span class="font-medium">Ecógrafo de Alta Resolución</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Eye className="h-5 w-5" />
+          <span class="font-medium">Diagnóstico en Tiempo Real</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Qué es */}
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-6">¿Qué es la Ecografía Musculoesquelética?</h2>
+          <div class="w-24 h-1 bg-green-claro mx-auto mb-6"></div>
+        </div>
+        <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <p class="text-xl leading-relaxed">
+            La <strong>ecografía musculoesquelética</strong> es una técnica de diagnóstico por imagen que utiliza ondas de ultrasonido para visualizar en tiempo real <strong>tendones, músculos, ligamentos, nervios y articulaciones</strong>.
+          </p>
+          <p class="text-lg leading-relaxed">
+            En <strong>FisioClinic Murcia</strong>, ubicados en Av. Príncipe de Asturias 3, cerca del Zigzag, contamos con un ecógrafo de última generación que nos permite identificar con precisión milimétrica la causa de tu lesión, evitando diagnósticos por intuición.
+          </p>
+          <Card class="bg-green-secundario/10 border-green-claro/30 my-8">
+            <CardContent class="p-8">
+              <h3 class="text-2xl font-bold text-green-principal mb-4 flex items-center">
+                <Target className="mr-3 h-7 w-7 text-green-claro" />
+                Ventajas de la Ecografía en Fisioterapia
+              </h3>
+              <ul class="space-y-3 text-lg text-gray-700">
+                {ventajas.map((v) => (
+                  <li class="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                    <span set:html={v} />
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <p class="text-lg leading-relaxed">
+            A diferencia de las radiografías (que solo ven hueso) o las resonancias magnéticas (caras y con lista de espera larga), la ecografía permite evaluar <strong>tejidos blandos de forma inmediata</strong> en la misma consulta, ajustando el tratamiento al momento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Qué detectamos */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">¿Qué Detectamos con la Ecografía?</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">Identificamos con precisión una amplia variedad de lesiones musculoesqueléticas</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {detectamos.map((p, i) => (
+            <div data-reveal style={`transition-delay:${(i % 3) * 90}ms`}>
+              <Card class="border-green-claro/20 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 bg-green-claro/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-6 h-6 text-green-principal" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-green-principal mb-2">{p.titulo}</h3>
+                      <p class="text-gray-600 text-sm">{p.descripcion}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Proceso */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Proceso de Evaluación Ecográfica</h2>
+          <p class="text-xl text-gray-600">Cómo realizamos el diagnóstico por ecografía en FisioClinic Murcia</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {proceso.map((m, i) => (
+            <div data-reveal style={`transition-delay:${i * 90}ms`} class="text-center">
+              <div class="w-20 h-20 bg-green-principal rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">{m.num}</div>
+              <h3 class="text-xl font-semibold text-green-principal mb-4">{m.titulo}</h3>
+              <p class="text-gray-600">{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Tratamientos guiados */}
+  <section class="py-16 md:py-20 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Tratamientos Guiados por Ecografía</h2>
+          <p class="text-xl text-gray-600">La ecografía no solo diagnostica, también guía tratamientos invasivos con precisión milimétrica</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {tratamientos.map((t, i) => {
+            const Icon = t.icon
+            return (
+              <div data-reveal style={`transition-delay:${(i % 2) * 100}ms`}>
+                <Card class="border-green-claro/30 hover:shadow-xl transition-shadow h-full">
+                  <CardContent class="p-8">
+                    <div class="flex items-center mb-4">
+                      <div class="w-12 h-12 bg-green-claro/20 rounded-full flex items-center justify-center mr-4">
+                        <Icon className="w-6 h-6 text-green-principal" />
+                      </div>
+                      <h3 class="text-2xl font-semibold text-green-principal">{t.titulo}</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">{t.intro}</p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                      {t.items.map((item) => (
+                        <li class="flex items-start">
+                          <CheckCircle className="w-4 h-4 text-green-secundario mr-2 mt-1 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Por qué elegirnos */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Ecografía Profesional en Murcia Centro</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {ventajasCentro.map((v, i) => {
+            const Icon = v.icon
+            return (
+              <div data-reveal style={`transition-delay:${i * 90}ms`}>
+                <Card class="border-green-claro/20 hover:shadow-lg transition-shadow text-center h-full">
+                  <CardContent class="p-8">
+                    <div class="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-green-principal" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-principal mb-4">{v.titulo}</h3>
+                    <p class="text-gray-600">{v.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Diferencia con otras pruebas */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Ecografía vs Otras Pruebas de Imagen</h2>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full bg-white rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-green-principal text-white">
+              <tr>
+                <th class="p-4 text-left">Característica</th>
+                <th class="p-4 text-center">Ecografía</th>
+                <th class="p-4 text-center">Radiografía</th>
+                <th class="p-4 text-center">Resonancia</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              {tabla.map((row, i) => (
+                <tr class={i % 2 === 1 ? 'bg-gray-50' : ''}>
+                  <td class="p-4 font-medium">{row.c}</td>
+                  <td class="p-4 text-center text-green-600 font-semibold">{row.eco}</td>
+                  <td class="p-4 text-center">{row.rx}</td>
+                  <td class="p-4 text-center">{row.rm}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Final */}
+  <section class="py-16 md:py-20 bg-green-principal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Diagnóstico Preciso para Tratamiento Efectivo</h2>
+        <p class="text-xl text-white/90 mb-8">
+          No sigas con la incertidumbre. Solicita una ecografía musculoesquelética en nuestro centro de Murcia y descubre qué está causando tu dolor.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Solicitar Ecografía
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent w-full">
+            Consultar Caso
+          </Button>
+        </div>
+        <p class="text-white/80 mt-6">📍 Av. Príncipe de Asturias 3 - Murcia Centro (cerca del Zigzag)</p>
+      </div>
+    </div>
+  </section>
+</Layout>
