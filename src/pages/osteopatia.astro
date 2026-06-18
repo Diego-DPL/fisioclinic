@@ -1,0 +1,315 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Card from '../components/Card.astro'
+import CardContent from '../components/CardContent.astro'
+import { CheckCircle, Stethoscope, Clock, Award, MapPin, Phone, Calendar, Heart } from 'lucide-react'
+
+const principios = [
+  '<strong>El cuerpo es una unidad:</strong> Todos los sistemas están interconectados',
+  '<strong>La estructura gobierna la función:</strong> Un problema estructural afecta al funcionamiento',
+  '<strong>Autocuración:</strong> El cuerpo tiene capacidad natural de recuperación',
+]
+
+const patologias = [
+  { titulo: 'Migrañas y Cefaleas', descripcion: 'Dolores de cabeza tensionales, migrañas crónicas, cefalea cervicogénica mediante técnicas craneales' },
+  { titulo: 'Dolor Cervical', descripcion: 'Tortícolis, cervicalgia crónica, latigazo cervical, dolor de cuello persistente' },
+  { titulo: 'Dolor Lumbar', descripcion: 'Lumbalgia aguda y crónica, ciática, hernias discales, dolor de espalda baja' },
+  { titulo: 'Problemas Digestivos', descripcion: 'Estreñimiento, reflujo gastroesofágico, colon irritable, hinchazón abdominal' },
+  { titulo: 'Vértigos y Mareos', descripcion: 'Mareos cervicales, vértigo posicional, problemas de equilibrio' },
+  { titulo: 'Bruxismo y ATM', descripcion: 'Dolor de mandíbula, rechinar de dientes, limitación apertura bucal, chasquidos' },
+  { titulo: 'Dolor de Hombro', descripcion: 'Capsulitis adhesiva (hombro congelado), tendinitis, dolor articular de hombro' },
+  { titulo: 'Problemas Respiratorios', descripcion: 'Dificultad respiratoria, asma, bronquitis de repetición (tratamiento complementario)' },
+  { titulo: 'Embarazo y Postparto', descripcion: 'Dolor lumbar durante embarazo, preparación al parto, recuperación postparto' },
+  { titulo: 'Estrés y Ansiedad', descripcion: 'Tensión muscular por estrés, contracturas por ansiedad, alteraciones del sueño' },
+  { titulo: 'Lesiones Deportivas', descripcion: 'Esguinces, tendinitis, sobrecargas musculares, prevención de lesiones' },
+  { titulo: 'Dolor Articular', descripcion: 'Artrosis, rigidez articular, limitación de movilidad en cualquier articulación' },
+]
+
+const especialidades = [
+  {
+    icon: Stethoscope,
+    titulo: 'Osteopatía Estructural',
+    intro: 'Trabaja sobre el <strong>sistema musculoesquelético</strong>: huesos, articulaciones, músculos y ligamentos.',
+    items: ['Manipulaciones vertebrales', 'Movilizaciones articulares', 'Técnicas de energía muscular', 'Corrección postural'],
+  },
+  {
+    icon: Heart,
+    titulo: 'Osteopatía Visceral',
+    intro: 'Se centra en los <strong>órganos internos</strong> y su relación con el sistema musculoesquelético.',
+    items: ['Movilización de órganos digestivos', 'Tratamiento de adherencias', 'Mejora de la función digestiva', 'Problemas respiratorios'],
+  },
+  {
+    icon: Award,
+    titulo: 'Osteopatía Craneal',
+    intro: 'Trabaja sobre el <strong>cráneo y sistema nervioso</strong> con técnicas sutiles y precisas.',
+    items: ['Tratamiento de migrañas', 'Vértigos y mareos', 'Bruxismo y ATM', 'Estrés y ansiedad'],
+  },
+]
+
+const sesion = [
+  { num: '1', titulo: 'Anamnesis Detallada (15 min)', desc: 'Conversamos sobre tu historial médico, síntomas actuales, estilo de vida y objetivos. Es fundamental conocerte para ofrecer el mejor tratamiento.' },
+  { num: '2', titulo: 'Evaluación Completa (15 min)', desc: 'Realizamos pruebas de movilidad, palpación de tejidos, análisis postural y test específicos para identificar la causa de tu problema.' },
+  { num: '3', titulo: 'Tratamiento Osteopático (25-30 min)', desc: 'Aplicamos técnicas manuales específicas: manipulaciones, movilizaciones, trabajo visceral o craneal según tu necesidad. Tratamiento siempre adaptado y respetuoso.' },
+  { num: '4', titulo: 'Consejos y Seguimiento (5-10 min)', desc: 'Te explicamos qué hemos hecho, damos pautas para casa (ejercicios, posturas, hábitos) y planificamos el seguimiento según tu evolución.' },
+]
+
+const ventajas = [
+  { icon: Award, titulo: 'Formación Especializada', desc: 'Máster en Osteopatía por la Escuela de Osteopatía de Madrid. Más de 10 años de experiencia tratando pacientes.' },
+  { icon: MapPin, titulo: 'Centro en Murcia Centro', desc: 'Av. Príncipe de Asturias 3, cerca del Zigzag. Fácil acceso en transporte público y parking cercano disponible.' },
+  { icon: Heart, titulo: 'Tratamiento Integral', desc: 'Combinamos osteopatía con fisioterapia y ejercicio terapéutico para resultados óptimos y duraderos.' },
+]
+---
+
+<Layout
+  title="Osteopatía en Murcia Centro | Tratamiento Holístico Av. Príncipe de Asturias"
+  description="Osteopatía profesional en Murcia centro, Av. Príncipe de Asturias 3. Tratamiento de migrañas, dolor cervical, lumbar y problemas digestivos. Centro cerca del Zigzag. Reserva cita."
+  canonical="https://www.fisioclinicmurcia.com/osteopatia"
+>
+  {/* Hero */}
+  <section class="bg-green-principal py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-green-claro/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+          Terapia Manual Especializada
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Osteopatía en Murcia Centro</h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          Recupera el equilibrio natural de tu cuerpo con técnicas manuales especializadas. Tratamiento integral de la causa, no solo los síntomas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reserva tu Sesión
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent">
+            <Phone className="mr-2 h-5 w-5" />
+            Consulta Gratuita
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Ubicación destacada */}
+  <section class="py-8 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-6 text-green-principal">
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Av. Príncipe de Asturias 3, Murcia Centro</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Zona Zigzag</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Stethoscope className="h-5 w-5" />
+          <span class="font-medium">Osteópatas Titulados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Qué es la Osteopatía */}
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-6">¿Qué es la Osteopatía?</h2>
+          <div class="w-24 h-1 bg-green-claro mx-auto mb-6"></div>
+        </div>
+        <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <p class="text-xl leading-relaxed">
+            La <strong>osteopatía</strong> es una terapia manual global que trata el cuerpo como una unidad funcional. A diferencia de tratamientos que solo abordan el síntoma local, la osteopatía busca y corrige la <strong>causa raíz</strong> de tu malestar.
+          </p>
+          <p class="text-lg leading-relaxed">
+            En <strong>FisioClinic Murcia</strong>, ubicados en Av. Príncipe de Asturias 3, cerca del Zigzag, nuestros osteópatas están formados en la Escuela de Osteopatía de Madrid, garantizando un tratamiento profesional y efectivo basado en años de experiencia clínica.
+          </p>
+          <Card class="bg-green-secundario/10 border-green-claro/30 my-8">
+            <CardContent class="p-8">
+              <h3 class="text-2xl font-bold text-green-principal mb-4 flex items-center">
+                <Heart className="mr-3 h-7 w-7 text-green-claro" />
+                Principios de la Osteopatía
+              </h3>
+              <ul class="space-y-3 text-lg text-gray-700">
+                {principios.map((p) => (
+                  <li class="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                    <span set:html={p} />
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <p class="text-lg leading-relaxed">
+            Un osteópata no solo trabaja huesos y articulaciones, sino también <strong>músculos, fascias, vísceras y el sistema craneal</strong>. Esta visión holística permite tratar problemas que otros enfoques no consiguen resolver.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Patologías */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Problemas que Trata la Osteopatía</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tratamiento efectivo para múltiples condiciones donde la medicina tradicional no siempre encuentra solución</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {patologias.map((p, i) => (
+            <div data-reveal style={`transition-delay:${(i % 3) * 90}ms`}>
+              <Card class="border-green-claro/20 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 bg-green-claro/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-6 h-6 text-green-principal" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-green-principal mb-2">{p.titulo}</h3>
+                      <p class="text-gray-600 text-sm">{p.descripcion}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Tipos de Osteopatía */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestras Especialidades en Osteopatía</h2>
+          <p class="text-xl text-gray-600">Dominio de las tres ramas principales de la osteopatía moderna</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {especialidades.map((e, i) => {
+            const Icon = e.icon
+            return (
+              <div data-reveal style={`transition-delay:${i * 90}ms`}>
+                <Card class="border-green-claro/30 hover:shadow-xl transition-shadow h-full">
+                  <CardContent class="p-8">
+                    <div class="text-center mb-6">
+                      <div class="w-20 h-20 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto">
+                        <Icon className="w-10 h-10 text-green-principal" />
+                      </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-green-principal mb-4 text-center">{e.titulo}</h3>
+                    <p class="text-gray-700 mb-4" set:html={e.intro} />
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                      {e.items.map((item) => (
+                        <li class="flex items-start">
+                          <CheckCircle className="w-4 h-4 text-green-secundario mr-2 mt-1 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Cómo es una sesión */}
+  <section class="py-16 md:py-20 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">¿Cómo es una Sesión de Osteopatía?</h2>
+          <p class="text-xl text-gray-600">Conoce qué esperar en tu primera visita a nuestro centro en Murcia</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {sesion.map((s, i) => (
+            <div data-reveal style={`transition-delay:${(i % 2) * 90}ms`}>
+              <Card class="border-green-claro/30 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-8">
+                  <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-green-principal rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                      {s.num}
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-semibold text-green-principal mb-2">{s.titulo}</h3>
+                      <p class="text-gray-600">{s.desc}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <div data-reveal>
+          <Card class="mt-8 bg-white border-green-claro/30">
+            <CardContent class="p-8 text-center">
+              <Clock className="w-12 h-12 text-green-principal mx-auto mb-4" />
+              <h3 class="text-2xl font-semibold text-green-principal mb-3">Duración Total: 60 minutos</h3>
+              <p class="text-gray-600 text-lg">Dedicamos el tiempo necesario para entenderte y tratarte de forma personalizada. No trabajamos con prisas.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Por qué elegirnos */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Osteopatía Profesional en Murcia Centro</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {ventajas.map((v, i) => {
+            const Icon = v.icon
+            return (
+              <div data-reveal style={`transition-delay:${i * 90}ms`}>
+                <Card class="border-green-claro/20 hover:shadow-lg transition-shadow text-center h-full">
+                  <CardContent class="p-8">
+                    <div class="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-green-principal" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-principal mb-4">{v.titulo}</h3>
+                    <p class="text-gray-600">{v.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Final */}
+  <section class="py-16 md:py-20 bg-green-principal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Recupera tu Equilibrio Natural</h2>
+        <p class="text-xl text-white/90 mb-8">Reserva tu sesión de osteopatía en Murcia. Tratamiento profesional para migrañas, dolor cervical, lumbar y más.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reservar Sesión Online
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent w-full">
+            Más Información
+          </Button>
+        </div>
+        <p class="text-white/80 mt-6">📍 Av. Príncipe de Asturias 3 - Murcia Centro (cerca del Zigzag)</p>
+      </div>
+    </div>
+  </section>
+</Layout>

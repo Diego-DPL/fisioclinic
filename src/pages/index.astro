@@ -1,0 +1,485 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Eyebrow from '../components/Eyebrow.astro'
+import Card from '../components/Card.astro'
+import CardContent from '../components/CardContent.astro'
+import HeroCarousel from '../components/HeroCarousel.jsx'
+import ContactForm from '../components/ContactForm.jsx'
+import { Heart, Stethoscope, Activity, Users, Mail, Instagram, MapPin, CheckCircle, Star, ArrowRight, User, X } from 'lucide-react'
+import antonioImg from '../assets/Antonio_Sanchez_Logo.webp'
+import ivanImg from '../assets/Ivan_Muñoz_Logo.webp'
+import EcografoImg from '../assets/Ecografo.webp'
+import heroTerapiaImg from '../assets/hero-terapia-manual.webp'
+
+const stats = [
+  { value: '+300', label: 'Pacientes tratados' },
+  { value: '+10', label: 'Años de experiencia' },
+  { value: '4', label: 'Servicios especializados' },
+  { value: '5★', label: 'Valoración media' },
+]
+
+const services = [
+  {
+    key: 'fisioterapia',
+    titulo: 'Fisioterapia personalizada',
+    descripcion: 'Tratamientos individualizados basados en evidencia científica',
+    hover: 'Recupera tu movilidad y elimina el dolor con tratamientos personalizados. Especializados en lesiones deportivas, dolores crónicos de espalda, cuello y articulaciones. Técnicas avanzadas adaptadas a tus necesidades.',
+    icon: Heart,
+    to: '/fisioterapia-personalizada',
+    iconBg: 'bg-rose-50',
+    iconColor: 'text-rose-500',
+  },
+  {
+    key: 'osteopatia',
+    titulo: 'Osteopatía',
+    descripcion: 'Técnicas manuales para el equilibrio corporal integral',
+    hover: 'Recupera el equilibrio natural de tu cuerpo. Tratamiento efectivo para migrañas, dolor cervical, lumbar y problemas digestivos. Terapia manual que identifica y trata la causa raíz de tu malestar.',
+    icon: Stethoscope,
+    to: '/osteopatia',
+    iconBg: 'bg-blue-50',
+    iconColor: 'text-blue-500',
+  },
+  {
+    key: 'ecografia',
+    titulo: 'Ecografía musculoesquelética',
+    descripcion: 'Diagnóstico por imagen para tratamientos precisos',
+    hover: 'Diagnóstico preciso en tiempo real para tu lesión. Visualizamos tendones, músculos y articulaciones. Tratamiento guiado por ecografía para resultados más rápidos y efectivos.',
+    icon: Activity,
+    to: '/ecografia-musculoesqueletica',
+    iconBg: 'bg-amber-50',
+    iconColor: 'text-amber-500',
+  },
+  {
+    key: 'pilates',
+    titulo: 'Pilates terapéutico Reformer',
+    descripcion: 'Ejercicio terapéutico con máquina especializada',
+    hover: 'Fortalece tu cuerpo y previene futuras lesiones con Pilates Reformer. Sesiones individuales, en pareja o en grupos reducidos (máx. 6 personas) por niveles con máquina profesional.',
+    icon: Users,
+    to: '/pilates-terapeutico',
+    iconBg: 'bg-emerald-50',
+    iconColor: 'text-emerald-600',
+  },
+]
+
+const whyItems = [
+  { title: 'Tecnología de vanguardia', desc: 'Equipos de ecografía y técnicas de diagnóstico avanzadas para un diagnóstico preciso en tiempo real.' },
+  { title: 'Tratamiento 100% personalizado', desc: 'Cada paciente recibe un plan de tratamiento único adaptado a sus necesidades específicas.' },
+  { title: 'Profesionales especializados', desc: 'Fisioterapeutas titulados con formación continua y más de 10 años de experiencia clínica.' },
+]
+
+const antonioSpecs = [
+  'Graduado en Fisioterapia.',
+  'Máster en Osteopatía por la Escuela de Osteopatía de Madrid.',
+  'Máster en Envejecimiento.',
+  'Máster en Ecografía y Fisioterapia Invasiva.',
+  'Formación de postgrado en Punción Seca, Neuromodulación y Electroneuroacupuntura.',
+  'Especialista en columna vertebral: hernia discal lumbar y cervical, protrusión discal y discopatías.',
+  'Especialista en migrañas y cefaleas mediante abordaje manual e intervencionista.',
+  'Drenaje linfático manual. Especialista en linfedema y complicaciones post cáncer de mama.',
+  'Pilates terapéutico adaptado a patología de columna.',
+]
+
+const ivanSpecs = [
+  'Fisioterapeuta y osteópata, colegiado n°2370, con más de 10 años en el sector.',
+  'Especialista en terapia manual y miofascial aplicada a patología de espalda.',
+  'Experto en fisioterapia deportiva y "return to play".',
+  'Especialista en trabajo de la ATM (articulación temporomandibular).',
+  'Especialista en terapia invasiva ecográfica (EPI y neuromodulación).',
+  'Formación en pilates reformer aplicado a la patología.',
+  'Tratamiento de cervicalgia, lumbalgia, tendinopatía, mareos, vértigo, manguito rotador y cefaleas.',
+]
+
+const testimonials = [
+  { quote: 'El trato fue inmejorable y la recuperación de mi lesión de rodilla fue más rápida de lo que esperaba. ¡Grandes profesionales!', name: 'María García', city: 'Murcia' },
+  { quote: 'Gracias a las clases de pilates con reformer he mejorado muchísimo mi postura y han desaparecido mis dolores de espalda. Totalmente recomendado.', name: 'Juan Pérez', city: 'Alcantarilla' },
+  { quote: 'Utilizan tecnología muy avanzada que me ayudó a entender perfectamente mi lesión. El plan de tratamiento personalizado fue clave.', name: 'Laura Martínez', city: 'Molina de Segura' },
+  { quote: 'Un equipo muy cercano y profesional. Me sentí en las mejores manos desde el primer día. ¡Mi centro de fisioterapia de confianza!', name: 'Carlos Sánchez', city: 'Murcia' },
+]
+
+const contactInfo = [
+  { icon: Mail, label: 'Email', value: 'fisioclinicmurcia@gmail.com', href: 'mailto:fisioclinicmurcia@gmail.com' },
+  { icon: Instagram, label: 'Instagram', value: '@fisioclinicmurcia', href: 'https://www.instagram.com/fisioclinicmurcia' },
+  { icon: MapPin, label: 'Ubicación', value: 'Av. Príncipe de Asturias, 3, Murcia', href: null },
+]
+
+const whyChooseUs = [
+  'Fisioterapeutas titulados y especializados',
+  'Tecnología de diagnóstico avanzada',
+  'Tratamientos 100% personalizados',
+  'Pilates terapéutico con máquina Reformer',
+]
+---
+
+<Layout>
+  {/* ── HERO (carrusel) ──────────────────────────────────────────────── */}
+  <HeroCarousel client:load />
+
+  {/* ── BANDA DE CONFIANZA / STATS ───────────────────────────────────── */}
+  <section class="bg-green-principal border-t border-white/10">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+        {stats.map(({ value, label }, i) => (
+          <div data-reveal style={`transition-delay:${i * 90}ms`} class="py-8 px-4 text-center">
+            <p class="font-display text-4xl md:text-5xl font-medium text-green-claro">{value}</p>
+            <p class="text-sm text-white/70 mt-1">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── UBICACIÓN ────────────────────────────────────────────────────── */}
+  <section id="ubicacion" class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div data-reveal class="text-center mb-10 md:mb-14">
+        <Eyebrow index="01" center class="mb-5">Ubicación</Eyebrow>
+        <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal mb-4">Dónde encontrarnos</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Encuéntranos en Av. Príncipe de Asturias, 3, Murcia. Con parking público cercano.
+        </p>
+      </div>
+      <div data-reveal="scale" class="max-w-6xl mx-auto">
+        <Card class="overflow-hidden border-0 shadow-xl rounded-3xl">
+          <div id="map-container" data-map style="min-height:450px">
+            <div class="w-full h-[450px] bg-gray-100 rounded-3xl flex items-center justify-center" role="status">
+              <div class="text-center text-gray-500">
+                <MapPin className="w-12 h-12 mx-auto mb-2 text-green-principal" />
+                <p class="text-sm font-medium">Cargando mapa...</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+        <div class="mt-6 text-center">
+          <p class="text-lg text-green-principal mb-4">
+            <span class="font-semibold">Dirección:</span> Av. Príncipe de Asturias, 3, 30007, Murcia
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://www.google.com/maps/dir//Av.+Pr%C3%ADncipe+de+Asturias,+3,+30007+Murcia" target="_blank" rel="noopener noreferrer">
+              <button class="inline-flex items-center justify-center text-sm font-medium transition-colors h-10 py-2 px-4 bg-green-principal hover:bg-green-secundario text-white w-full sm:w-auto rounded-full">
+                <MapPin className="mr-2 h-4 w-4" /> Ver en Google Maps
+              </button>
+            </a>
+            <a href="https://maps.app.goo.gl/g6Gn9TWxyke6hghs5" target="_blank" rel="noopener noreferrer">
+              <button class="inline-flex items-center justify-center text-sm font-medium transition-colors h-10 py-2 px-4 border border-green-principal text-green-principal hover:bg-green-secundario hover:border-green-secundario hover:text-white bg-transparent w-full sm:w-auto rounded-full">
+                <MapPin className="mr-2 h-4 w-4" /> Parking cercano
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── SERVICIOS ────────────────────────────────────────────────────── */}
+  <section id="servicios" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div data-reveal class="text-center mb-12 md:mb-16">
+        <Eyebrow index="02" center class="mb-5">Servicios</Eyebrow>
+        <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal mb-4">¿En qué podemos ayudarte?</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Tratamientos especializados con las técnicas más avanzadas, adaptados a ti.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((s, i) => {
+          const Icon = s.icon
+          return (
+            <a href={s.to} data-reveal style={`transition-delay:${i * 100}ms`} class="block group">
+              <div class="relative overflow-hidden rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 bg-white h-full flex flex-col">
+                {/* Top accent */}
+                <div class="h-1.5 bg-gradient-to-r from-green-principal to-green-secundario flex-shrink-0"></div>
+                <div class="p-7 flex flex-col flex-1">
+                  <div class="flex items-center justify-between mb-5">
+                    <div class={`w-14 h-14 ${s.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-7 h-7 ${s.iconColor}`} />
+                    </div>
+                    <span class="font-display text-2xl text-gray-200 group-hover:text-green-secundario transition-colors duration-300 tabular-nums">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 class="font-display text-xl font-medium text-green-principal mb-3">{s.titulo}</h3>
+                  <p class="text-gray-500 text-sm leading-relaxed flex-1">{s.descripcion}</p>
+                  <div class="mt-5 flex items-center text-green-principal text-sm font-semibold">
+                    <span class="link-underline">Saber más</span>
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                {/* Hover overlay (CSS group-hover) */}
+                <div class="absolute inset-0 bg-green-principal text-white p-7 rounded-2xl flex flex-col justify-center opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100 group-hover:pointer-events-auto">
+                  <p class="text-sm leading-relaxed mb-4">{s.hover}</p>
+                  <span class="text-xs font-semibold text-green-claro flex items-center gap-1">
+                    Haz clic para saber más <ArrowRight className="w-3 h-3" />
+                  </span>
+                </div>
+              </div>
+            </a>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  {/* ── POR QUÉ NOSOTROS ─────────────────────────────────────────────── */}
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div data-reveal="left" class="space-y-8">
+          <Eyebrow index="03">¿Por qué FisioClinic?</Eyebrow>
+          <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal leading-[1.12]">
+            Fisioterapia basada en evidencia, tecnología avanzada y atención personalizada
+          </h2>
+          <div class="space-y-4">
+            {whyItems.map(({ title, desc }) => (
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-10 h-10 bg-green-claro/15 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle className="w-5 h-5 text-green-principal" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-green-principal mb-1">{title}</h3>
+                  <p class="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div data-reveal="right" class="relative mt-6 lg:mt-0">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+              <img src={EcografoImg.src} alt="Ecógrafo profesional en FisioClinic Murcia" loading="lazy" class="w-full h-full object-cover object-center block" width={448} height={600} />
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-lg mt-8 h-64">
+              <img src={heroTerapiaImg.src} alt="Sesión de fisioterapia personalizada en FisioClinic Murcia" loading="lazy" class="w-full h-full object-cover object-center block" width={500} height={600} />
+            </div>
+          </div>
+          {/* Badge flotante */}
+          <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-green-principal text-white rounded-2xl px-5 py-3 shadow-xl text-center z-10 whitespace-nowrap">
+            <p class="font-bold text-sm">Diagnóstico con ecografía</p>
+            <p class="text-green-claro text-xs mt-0.5">Tecnología de última generación</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── EQUIPO ───────────────────────────────────────────────────────── */}
+  <section id="equipo" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div data-reveal class="text-center mb-12 md:mb-16">
+        <Eyebrow index="04" center class="mb-5">Nuestro equipo</Eyebrow>
+        <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal mb-4">Profesionales a tu servicio</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Fisioterapeutas colegiados con amplia experiencia, en constante formación para ofrecerte el mejor servicio.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+        {/* Antonio */}
+        <div data-reveal class="group" data-team-card>
+          <Card class="border-0 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 rounded-3xl">
+            <CardContent class="p-0 relative overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
+              <img src={antonioImg.src} alt="Antonio Sánchez González - Fisioterapeuta y Osteópata" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" width={500} height={420} />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 pointer-events-none">
+                <h3 class="font-display text-white font-medium text-2xl">Antonio Sánchez</h3>
+                <p class="text-green-claro text-sm font-medium mt-0.5">Fisioterapeuta & Osteópata</p>
+              </div>
+              <div
+                class="team-overlay absolute inset-0 bg-white/97 backdrop-blur-sm text-left transform translate-y-full pointer-events-none transition-transform duration-300 ease-in-out z-10 group-hover:translate-y-0 group-hover:pointer-events-auto"
+                role="region"
+                aria-labelledby="antonio-especialidades"
+              >
+                <button type="button" data-team-close class="absolute top-3 right-3 z-20 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center lg:hidden" aria-label="Cerrar información de Antonio">
+                  <X className="w-4 h-4 text-gray-600" />
+                </button>
+                <div class="overflow-y-auto h-full p-6">
+                  <h4 id="antonio-especialidades" class="text-lg font-bold text-green-principal">Antonio Sánchez</h4>
+                  <p class="text-green-secundario text-sm font-medium mb-4">Fisioterapeuta & Osteópata</p>
+                  <ul class="text-gray-700 text-sm space-y-2.5">
+                    {antonioSpecs.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-principal mt-0.5 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <button type="button" data-team-open class="absolute inset-0 w-full h-full opacity-0" aria-label="Ver información de Antonio"></button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Iván */}
+        <div data-reveal style="transition-delay:120ms" class="group" data-team-card>
+          <Card class="border-0 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 rounded-3xl">
+            <CardContent class="p-0 relative overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
+              <img src={ivanImg.src} alt="Iván Muñoz García - Fisioterapeuta y Osteópata" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" width={500} height={420} />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 pointer-events-none">
+                <h3 class="font-display text-white font-medium text-2xl">Iván Muñoz</h3>
+                <p class="text-green-claro text-sm font-medium mt-0.5">Fisioterapeuta & Osteópata</p>
+              </div>
+              <div
+                class="team-overlay absolute inset-0 bg-white/97 backdrop-blur-sm text-left transform translate-y-full pointer-events-none transition-transform duration-300 ease-in-out z-10 group-hover:translate-y-0 group-hover:pointer-events-auto"
+                role="region"
+                aria-labelledby="ivan-especialidades"
+              >
+                <button type="button" data-team-close class="absolute top-3 right-3 z-20 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center lg:hidden" aria-label="Cerrar información de Iván">
+                  <X className="w-4 h-4 text-gray-600" />
+                </button>
+                <div class="overflow-y-auto h-full p-6">
+                  <h4 id="ivan-especialidades" class="text-lg font-bold text-green-principal">Iván Muñoz</h4>
+                  <p class="text-green-secundario text-sm font-medium mb-4">Fisioterapeuta & Osteópata · Col. 2370</p>
+                  <ul class="text-gray-700 text-sm space-y-2.5">
+                    {ivanSpecs.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-principal mt-0.5 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <button type="button" data-team-open class="absolute inset-0 w-full h-full opacity-0" aria-label="Ver información de Iván"></button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── OPINIONES ────────────────────────────────────────────────────── */}
+  <section id="opiniones" class="py-16 md:py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div data-reveal class="text-center mb-12 md:mb-16">
+        <Eyebrow index="05" center class="mb-5">Opiniones</Eyebrow>
+        <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal mb-4">Lo que dicen nuestros pacientes</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          La satisfacción de nuestros pacientes es nuestra mejor carta de presentación.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {testimonials.map(({ quote, name, city }, i) => (
+          <div data-reveal style={`transition-delay:${(i % 2) * 120}ms`} class="border-0 shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl bg-white">
+            <div class="p-7">
+              <div class="flex gap-1 mb-4">
+                {Array.from({ length: 5 }).map(() => (
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p class="text-gray-700 italic leading-relaxed mb-5 text-[15px]">"{quote}"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-principal/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <User className="w-5 h-5 text-green-principal" />
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-sm">{name}</p>
+                  <p class="text-gray-400 text-xs">{city}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── CONTACTO ─────────────────────────────────────────────────────── */}
+  <section id="contacto" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <Eyebrow index="06" center class="mb-5">Contacto</Eyebrow>
+          <h2 class="font-display text-3xl md:text-5xl font-medium text-green-principal mb-4">Reserva tu cita</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Contáctanos para más información o para agendar tu primera consulta
+          </p>
+          <a
+            href="https://wa.me/+34684708394"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] hover:bg-[#1dba59] text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+            </svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <ContactForm client:visible />
+
+          <div class="space-y-6 lg:pt-2">
+            <h3 class="text-2xl font-bold text-green-principal">Información de contacto</h3>
+            <div class="space-y-4">
+              {contactInfo.map(({ icon, label, value, href }) => {
+                const Icon = icon
+                return (
+                  <div class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div class="w-11 h-11 bg-green-secundario/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-green-principal" />
+                    </div>
+                    <div>
+                      <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">{label}</p>
+                      {href ? (
+                        <a href={href} class="font-semibold text-gray-800 hover:text-green-principal transition-colors text-sm">{value}</a>
+                      ) : (
+                        <p class="font-semibold text-gray-800 text-sm">{value}</p>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            <div class="bg-gradient-to-br from-green-principal to-green-principal/90 p-6 rounded-2xl text-white">
+              <h4 class="font-bold mb-3 text-lg">¿Por qué elegirnos?</h4>
+              <ul class="space-y-2.5">
+                {whyChooseUs.map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-white/90">
+                    <CheckCircle className="w-4 h-4 text-green-claro flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Mapa: carga diferida al acercarse al viewport (igual que el comportamiento original)
+  const mapContainer = document.querySelector('[data-map]')
+  if (mapContainer) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          mapContainer.innerHTML =
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.483987479918!2d-1.139888923679808!3d38.01258997192661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381c60718c38b%3A0x7c9b8b6b1b1b1b1b!2sAv.%20Pr%C3%ADncipe%20de%20Asturias%2C%203%2C%2030007%20Murcia!5e0!3m2!1ses!2ses!4v1620000000000" width="100%" height="450" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de FisioClinic"></iframe>'
+          io.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    io.observe(mapContainer)
+  }
+
+  // Fichas del equipo: abrir/cerrar en móvil (en desktop se usa hover por CSS)
+  document.querySelectorAll('[data-team-card]').forEach((card) => {
+    const overlay = card.querySelector('.team-overlay')
+    const openBtn = card.querySelector('[data-team-open]')
+    const closeBtn = card.querySelector('[data-team-close]')
+    openBtn?.addEventListener('click', () => overlay?.classList.add('is-open'))
+    closeBtn?.addEventListener('click', (e) => {
+      e.stopPropagation()
+      overlay?.classList.remove('is-open')
+    })
+    overlay?.addEventListener('click', (e) => {
+      if (e.target === overlay) overlay.classList.remove('is-open')
+    })
+  })
+</script>

@@ -1,0 +1,25 @@
+---
+/**
+ * Etiqueta editorial: índice + línea + label con tracking amplio.
+ * Hilo conductor visual entre secciones.
+ */
+interface Props {
+  index?: string
+  tone?: 'dark' | 'light'
+  center?: boolean
+  class?: string
+}
+const { index, tone = 'dark', center = false, class: className = '' } = Astro.props
+const isLight = tone === 'light'
+const labelColor = isLight ? 'text-white/80' : 'text-green-principal/80'
+const numColor = isLight ? 'text-green-claro' : 'text-green-secundario'
+const lineColor = isLight ? 'bg-white/40' : 'bg-green-principal/30'
+---
+
+<div class={`inline-flex items-center gap-3 ${center ? 'justify-center' : ''} ${className}`}>
+  {index && <span class={`font-display text-sm ${numColor} tabular-nums`}>{index}</span>}
+  <span class={`h-px w-8 ${lineColor}`} aria-hidden="true"></span>
+  <span class={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.28em] ${labelColor}`}>
+    <slot />
+  </span>
+</div>

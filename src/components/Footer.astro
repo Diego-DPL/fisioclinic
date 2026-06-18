@@ -1,0 +1,106 @@
+---
+import { Mail, Instagram } from 'lucide-react'
+import Logo_Full_blanco from '../assets/Logo_Full_blanco.png'
+import PoliticaIvan from '../assets/Politica_Privacidad_Ivan.pdf'
+import PoliticaAntonio from '../assets/Politica_Privacidad_Antonio.pdf'
+import AvisoLegalAntonio from '../assets/AvisoLegal_Antonio.pdf'
+import AvisoLegalIvan from '../assets/AvisoLegal_Ivan.pdf'
+
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="bg-green-principal text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <div class="flex items-center">
+            <img src={Logo_Full_blanco.src} alt="FisioClinic Logo" class="h-16" width={196} height={64} loading="lazy" />
+          </div>
+        </div>
+        <p class="text-white mb-4">Tu bienestar, nuestra prioridad.</p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4">Contacto</h4>
+        <div class="space-y-2 text-white">
+          <p>fisioclinicmurcia@gmail.com</p>
+          <a
+            href="https://www.instagram.com/fisioclinicmurcia"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Seguir a @fisioclinicmurcia en Instagram"
+            class="text-white underline hover:text-green-claro transition-colors block"
+          >
+            @fisioclinicmurcia
+          </a>
+          <p>Av. Príncipe de Asturias, 3, Murcia, España</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4">Síguenos</h4>
+        <div class="flex space-x-4">
+          <a
+            href="https://www.instagram.com/fisioclinicmurcia"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Síguenos en Instagram"
+            class="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
+          >
+            <Instagram className="w-5 h-5" aria-hidden="true" />
+          </a>
+          <a
+            href="mailto:fisioclinicmurcia@gmail.com"
+            aria-label="Enviar email a fisioclinicmurcia@gmail.com"
+            class="w-10 h-10 bg-green-principal rounded-full flex items-center justify-center hover:bg-green-secundario transition-colors"
+          >
+            <Mail className="w-5 h-5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4">RGPD - Fisioclinic Murcia</h4>
+        <div class="flex flex-row">
+          <div>
+            <a href="https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA2&idC=MjI5OTM=">
+              <img src="https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png" alt="Sello RGPD Iván" loading="lazy" />
+            </a>
+            <p class="italic ml-6">Iván</p>
+          </div>
+          <div>
+            <a href="https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NzE5OTA0&idC=MjI5OTM=">
+              <img src="https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png" alt="Sello RGPD Antonio" loading="lazy" />
+            </a>
+            <p class="italic ml-6">Antonio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-green-principal mt-6 pt-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+        <p class="text-white text-sm text-center md:text-left">© {currentYear} FisioClinic Murcia. Todos los derechos reservados.</p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-2 text-sm">
+          <a href={PoliticaIvan} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
+            Política de privacidad (Iván)
+          </a>
+          <span class="hidden sm:inline text-white">|</span>
+          <a href={PoliticaAntonio} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
+            Política de privacidad (Antonio)
+          </a>
+          <span class="hidden sm:inline text-white">|</span>
+          <a href={AvisoLegalAntonio} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
+            Aviso Legal (Antonio)
+          </a>
+          <span class="hidden sm:inline text-white">|</span>
+          <a href={AvisoLegalIvan} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
+            Aviso Legal (Iván)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

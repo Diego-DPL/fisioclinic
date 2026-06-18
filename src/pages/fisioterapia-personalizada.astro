@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Card from '../components/Card.astro'
+import CardContent from '../components/CardContent.astro'
+import { CheckCircle, Heart, Clock, Award, MapPin, Phone, Calendar } from 'lucide-react'
+
+const patologias = [
+  { titulo: 'Lesiones Deportivas', descripcion: 'Esguinces, roturas fibrilares, tendinitis, rehabilitación post-cirugía deportiva' },
+  { titulo: 'Dolor de Espalda', descripcion: 'Lumbalgia, ciática, hernias discales, contracturas musculares, dolor crónico' },
+  { titulo: 'Dolor Cervical', descripcion: 'Cervicalgia, latigazo cervical, dolor de cuello por posturas, mareos cervicales' },
+  { titulo: 'Lesiones de Hombro', descripcion: 'Tendinitis del manguito rotador, capsulitis adhesiva, dolor de hombro' },
+  { titulo: 'Problemas de Rodilla', descripcion: 'Condromalacia rotuliana, esguinces de ligamentos, tendinitis rotuliana' },
+  { titulo: 'Rehabilitación Post-Operatoria', descripcion: 'Recuperación tras cirugías ortopédicas, implantes, fracturas' },
+  { titulo: 'Dolor Articular', descripcion: 'Artrosis, artritis, rigidez articular, limitación de movilidad' },
+  { titulo: 'Fascitis Plantar', descripcion: 'Dolor en la planta del pie, espolón calcáneo, problemas de pisada' },
+  { titulo: 'Dolores Crónicos', descripcion: 'Fibromialgia, dolor muscular persistente, tensión crónica' },
+]
+
+const metodo = [
+  { num: '1', titulo: 'Evaluación Inicial Completa', desc: 'Realizamos una valoración exhaustiva de tu historial médico, condición actual y objetivos de recuperación. Incluye pruebas funcionales y análisis postural.' },
+  { num: '2', titulo: 'Diagnóstico Preciso', desc: 'Identificamos la causa raíz de tu dolor o lesión utilizando técnicas avanzadas de evaluación y, cuando es necesario, ecografía musculoesquelética.' },
+  { num: '3', titulo: 'Plan de Tratamiento Personalizado', desc: 'Diseñamos un programa específico con técnicas de terapia manual, ejercicios terapéuticos y tratamientos tecnológicos adaptados a ti.' },
+  { num: '4', titulo: 'Seguimiento y Prevención', desc: 'Monitorizamos tu evolución en cada sesión y te enseñamos estrategias para prevenir futuras lesiones y mantener los resultados a largo plazo.' },
+]
+
+const tecnicas = [
+  { titulo: 'Terapia Manual Especializada', items: ['Manipulaciones articulares de alta velocidad', 'Movilizaciones articulares y neurales', 'Terapia miofascial y liberación de puntos gatillo', 'Masaje terapéutico profundo'] },
+  { titulo: 'Fisioterapia Invasiva', items: ['Punción seca para puntos gatillo miofasciales', 'Electrolisis percutánea intratisular (EPI)', 'Neuromodulación percutánea', 'Todas guiadas por ecografía para máxima precisión'] },
+  { titulo: 'Ejercicio Terapéutico', items: ['Programas de fortalecimiento progresivo', 'Rehabilitación funcional y readaptación deportiva', 'Ejercicios de control motor y estabilización', 'Pilates terapéutico con máquina Reformer'] },
+  { titulo: 'Tecnología Avanzada', items: ['Ecografía musculoesquelética diagnóstica', 'Tratamientos guiados por imagen en tiempo real', 'Diatermia de alta frecuencia', 'Electroterapia y TENS'] },
+]
+
+const ventajas = [
+  { icon: Award, titulo: 'Fisioterapeutas Especializados', desc: 'Profesionales colegiados con más de 10 años de experiencia y formación continua en las técnicas más avanzadas de fisioterapia.' },
+  { icon: MapPin, titulo: 'Ubicación Céntrica en Murcia', desc: 'Situados en Av. Príncipe de Asturias 3, cerca del Zigzag en pleno centro de Murcia. Fácil acceso y parking cercano para tu comodidad.' },
+  { icon: Clock, titulo: 'Atención Rápida', desc: 'Ofrecemos citas el mismo día o en 24-48 horas. No esperes semanas con dolor, te atendemos cuando más lo necesitas.' },
+]
+---
+
+<Layout
+  title="Fisioterapia Personalizada en Murcia Centro | FisioClinic Av. Príncipe de Asturias"
+  description="Fisioterapia personalizada en Murcia centro, Av. Príncipe de Asturias 3, cerca del Zigzag. Tratamiento individualizado para lesiones deportivas, dolor de espalda y rehabilitación. ¡Reserva cita!"
+  canonical="https://www.fisioclinicmurcia.com/fisioterapia-personalizada"
+>
+  {/* Hero Section */}
+  <section class="bg-green-principal py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-green-claro/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+          Servicio Especializado
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Fisioterapia Personalizada en Murcia Centro
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          Recupera tu movilidad y elimina el dolor con tratamientos individualizados basados en evidencia científica
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reserva tu Primera Cita
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent">
+            <Phone className="mr-2 h-5 w-5" />
+            Consulta sin Compromiso
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Ubicación destacada */}
+  <section class="py-8 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-6 text-green-principal">
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Av. Príncipe de Asturias 3, Murcia Centro</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <MapPin className="h-5 w-5" />
+          <span class="font-medium">Cerca del Zigzag</span>
+        </div>
+        <div class="hidden sm:block w-px h-6 bg-green-principal/30"></div>
+        <div class="flex items-center gap-2">
+          <Clock className="h-5 w-5" />
+          <span class="font-medium">Cita el mismo día</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Qué es la Fisioterapia Personalizada */}
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-6">¿Qué es la Fisioterapia Personalizada?</h2>
+          <div class="w-24 h-1 bg-green-claro mx-auto mb-6"></div>
+        </div>
+
+        <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <p class="text-xl leading-relaxed">
+            La <strong>fisioterapia personalizada</strong> es un enfoque terapéutico individualizado donde cada tratamiento se diseña específicamente para ti, basándose en tu condición única, objetivos personales y estilo de vida.
+          </p>
+          <p class="text-lg leading-relaxed">
+            En <strong>FisioClinic Murcia</strong>, ubicados en Av. Príncipe de Asturias 3, cerca del Zigzag en pleno centro de Murcia, no aplicamos protocolos genéricos. Realizamos una evaluación completa de tu situación para crear un plan de tratamiento que se adapte a tus necesidades específicas.
+          </p>
+          <Card class="bg-green-secundario/10 border-green-claro/30 my-8">
+            <CardContent class="p-8">
+              <h3 class="text-2xl font-bold text-green-principal mb-4 flex items-center">
+                <Heart className="mr-3 h-7 w-7 text-green-claro" />
+                Nuestro Enfoque en Murcia Centro
+              </h3>
+              <p class="text-lg text-gray-700">
+                Combinamos <strong>técnicas manuales avanzadas</strong> con tecnología de última generación, incluyendo ecografía musculoesquelética, para ofrecer el mejor tratamiento de fisioterapia en Murcia. Cada sesión está diseñada para acelerar tu recuperación y prevenir futuras lesiones.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Patologías que tratamos */}
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Patologías que Tratamos con Fisioterapia</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experiencia comprobada en el tratamiento de múltiples condiciones musculoesqueléticas</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {patologias.map((p, i) => (
+            <div data-reveal style={`transition-delay:${(i % 3) * 90}ms`}>
+              <Card class="border-green-claro/20 hover:shadow-lg transition-shadow h-full">
+                <CardContent class="p-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 bg-green-claro/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-6 h-6 text-green-principal" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-green-principal mb-2">{p.titulo}</h3>
+                      <p class="text-gray-600 text-sm">{p.descripcion}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Cómo trabajamos */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Nuestro Método de Trabajo en FisioClinic Murcia</h2>
+          <p class="text-xl text-gray-600">Un proceso estructurado para garantizar tu recuperación completa</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metodo.map((m, i) => (
+            <div data-reveal style={`transition-delay:${i * 90}ms`} class="text-center">
+              <div class="w-20 h-20 bg-green-principal rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                {m.num}
+              </div>
+              <h3 class="text-xl font-semibold text-green-principal mb-4">{m.titulo}</h3>
+              <p class="text-gray-600">{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Técnicas que utilizamos */}
+  <section class="py-16 md:py-20 bg-green-secundario/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">Técnicas de Fisioterapia Avanzadas</h2>
+          <p class="text-xl text-gray-600">Combinamos lo mejor de la fisioterapia tradicional con la tecnología más moderna</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {tecnicas.map((t, i) => (
+            <div data-reveal style={`transition-delay:${(i % 2) * 100}ms`}>
+              <Card class="border-green-claro/30 hover:shadow-xl transition-shadow h-full">
+                <CardContent class="p-8">
+                  <h3 class="text-2xl font-semibold text-green-principal mb-4">{t.titulo}</h3>
+                  <ul class="space-y-3 text-gray-700">
+                    {t.items.map((item) => (
+                      <li class="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-green-secundario mr-3 mt-1 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Por qué elegirnos */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div data-reveal class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-green-principal mb-4">¿Por Qué Elegir FisioClinic en Murcia Centro?</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {ventajas.map((v, i) => {
+            const Icon = v.icon
+            return (
+              <div data-reveal style={`transition-delay:${i * 90}ms`}>
+                <Card class="border-green-claro/20 hover:shadow-lg transition-shadow text-center h-full">
+                  <CardContent class="p-8">
+                    <div class="w-16 h-16 bg-green-claro/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-green-principal" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-principal mb-4">{v.titulo}</h3>
+                    <p class="text-gray-600">{v.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Final */}
+  <section class="py-16 md:py-20 bg-green-principal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para Recuperar tu Bienestar?</h2>
+        <p class="text-xl text-white/90 mb-8">
+          Agenda tu primera cita de fisioterapia en nuestro centro de Murcia. Tratamiento personalizado desde la primera sesión.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" href="https://go.fisiotrack.com" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-100 text-green-principal px-8 py-6 text-lg rounded-full font-bold">
+            <Calendar className="mr-2 h-5 w-5" />
+            Reservar Cita Online
+          </Button>
+          <Button size="lg" variant="outline" href="/#contacto" class="border-2 border-white text-white hover:bg-white hover:text-green-principal px-8 py-6 text-lg rounded-full bg-transparent w-full">
+            Más Información
+          </Button>
+        </div>
+        <p class="text-white/80 mt-6">📍 Av. Príncipe de Asturias 3 - Murcia Centro (cerca del Zigzag)</p>
+      </div>
+    </div>
+  </section>
+</Layout>
