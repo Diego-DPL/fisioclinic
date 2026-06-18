@@ -105,7 +105,7 @@ export default function HeroCarousel() {
             aria-hidden={i !== current}
           >
             <img
-              src={s.img}
+              src={typeof s.img === 'string' ? s.img : s.img.src}
               alt={i === 0 ? s.alt : ''}
               aria-hidden={i !== 0}
               className="hero-slide__img w-full h-full object-cover object-center"
