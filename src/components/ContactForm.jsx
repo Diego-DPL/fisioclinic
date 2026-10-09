@@ -6,6 +6,7 @@ import { Card, CardContent } from './ui/card'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ nombre: '', telefono: '', email: '', mensaje: '' })
+  const [publicidad, setPublicidad] = useState(false)
 
   const handleFormChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -18,6 +19,7 @@ export default function ContactForm() {
     if (telefono) parts.push(`Mi teléfono es ${telefono}.`)
     if (email) parts.push(`Mi email es ${email}.`)
     if (mensaje) parts.push(mensaje)
+    if (publicidad) parts.push('Consiento recibir publicidad de vuestros servicios.')
     const text = parts.join(' ')
     window.open(`https://wa.me/+34684708394?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer')
   }
@@ -43,6 +45,17 @@ export default function ContactForm() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
             <Textarea name="mensaje" value={formData.mensaje} onChange={handleFormChange} placeholder="Cuéntanos cómo podemos ayudarte..." rows={4} className="border-gray-200 rounded-xl" />
+          </div>
+          <div className="text-xs text-gray-600 space-y-2 leading-relaxed">
+            <p className="font-semibold text-gray-700">Información básica sobre protección de datos</p>
+            <p><strong>Responsable:</strong> FISIOCLINIC MURCIA EAR, NIF E88721683, Plaza Dentistas Murcianos 3, Murcia, fisioclinicmurcia@gmail.com.</p>
+            <p><strong>Finalidad:</strong> gestión de las peticiones de información recibidas sobre nuestros productos o servicios y, si lo consiente, realizar campañas publicitarias.</p>
+            <p><strong>Legitimación:</strong> interés legítimo del responsable para contestar su solicitud; su consentimiento expreso para enviarle publicidad (solo si marca la casilla).</p>
+            <p><strong>Derechos:</strong> acceso, rectificación, supresión, portabilidad, limitación, oposición al tratamiento y oposición a la toma de decisiones automatizadas, así como reclamar ante la autoridad de control. Más información en nuestra <a href="/politica-de-privacidad" className="underline text-green-principal">política de privacidad</a> o escribiendo al e-mail indicado.</p>
+            <label className="flex items-start gap-2 cursor-pointer">
+              <input type="checkbox" checked={publicidad} onChange={(e) => setPublicidad(e.target.checked)} className="mt-0.5" />
+              <span>Consiento el envío por parte del responsable de campañas publicitarias sobre sus servicios y/o productos. (No es obligatorio para enviar la solicitud.)</span>
+            </label>
           </div>
           <Button type="submit" className="w-full bg-[#25D366] hover:bg-[#1dba59] text-white py-3 text-lg rounded-full transition-colors flex items-center justify-center gap-2">
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current flex-shrink-0" xmlns="http://www.w3.org/2000/svg">

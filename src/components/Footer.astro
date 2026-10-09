@@ -1,10 +1,6 @@
 ---
 import { Mail, Instagram } from 'lucide-react'
 import Logo_Full_blanco from '../assets/Logo_Full_blanco.png'
-import PoliticaIvan from '../assets/Politica_Privacidad_Ivan.pdf'
-import PoliticaAntonio from '../assets/Politica_Privacidad_Antonio.pdf'
-import AvisoLegalAntonio from '../assets/AvisoLegal_Antonio.pdf'
-import AvisoLegalIvan from '../assets/AvisoLegal_Ivan.pdf'
 
 const currentYear = new Date().getFullYear()
 ---
@@ -84,21 +80,13 @@ const currentYear = new Date().getFullYear()
         <p class="text-white text-sm text-center md:text-left">© {currentYear} FisioClinic Murcia. Todos los derechos reservados.</p>
 
         <div class="flex flex-col sm:flex-row items-center gap-2 text-sm">
-          <a href={PoliticaIvan} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
-            Política de privacidad (Iván)
-          </a>
+          <a href="/aviso-legal" class="text-white underline hover:text-green-secundario">Aviso legal</a>
           <span class="hidden sm:inline text-white">|</span>
-          <a href={PoliticaAntonio} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
-            Política de privacidad (Antonio)
-          </a>
+          <a href="/politica-de-privacidad" class="text-white underline hover:text-green-secundario">Política de privacidad</a>
           <span class="hidden sm:inline text-white">|</span>
-          <a href={AvisoLegalAntonio} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
-            Aviso Legal (Antonio)
-          </a>
+          <a href="/politica-de-cookies" class="text-white underline hover:text-green-secundario">Política de cookies</a>
           <span class="hidden sm:inline text-white">|</span>
-          <a href={AvisoLegalIvan} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-green-secundario">
-            Aviso Legal (Iván)
-          </a>
+          <button type="button" data-cookie-settings class="text-white underline hover:text-green-secundario bg-transparent border-0 p-0 cursor-pointer">Configurar cookies</button>
         </div>
       </div>
       <p class="text-white/60 text-xs text-center mt-4">

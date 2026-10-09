@@ -1,0 +1,174 @@
+---
+import LegalPage from '../components/LegalPage.astro'
+import { legal } from '../data/legal'
+
+const tratamientos = [
+  ['TR04', 'Campañas publicitarias', 'Ley 34/1988, de 11 de noviembre, General de Publicidad.'],
+  ['TR08', 'Recabar la opinión de los interesados', 'Reglamento (UE) 2016/679 de protección de datos y LOPD.'],
+  ['TR03', 'Selección de personal propio', 'Real Decreto Legislativo 3/2015, de 23 de octubre, por el que se aprueba el texto refundido de la ley de Empleo.'],
+  ['TG01', 'Gestión contable y de libros propia, en calidad de responsable', 'Real Decreto 1514/2007, de 16 de Noviembre, por el que se regula el Plan General Contable.'],
+  ['TG25', 'Recogida de datos para la gestión fiscal propia', 'Ley 58/2003, de 17 de diciembre, General Tributaria.'],
+  ['TG12', 'Gestión laboral propia: recogida de datos', 'Real Decreto Legislativo 1/1994, de 20 de junio, por el que se aprueba el Texto Refundido de la Ley General de la Seguridad Social.'],
+  ['TR09', 'Seguridades sobre medidas técnicas y organizativas en el software aplicado', 'Reglamento (UE) 2016/679 de protección de datos y LOPD.'],
+  ['TE08', 'Protección de Datos Personales', 'Reglamento (UE) 2016/679 y Ley Orgánica 3/2018.'],
+  ['TE02', 'Prevención de riesgos laborales', 'Ley 31/1995, de 8 de noviembre, de prevención de Riesgos Laborales.'],
+  ['TE07', 'Destrucción de documentos', 'Reglamento (UE) 2016/679.'],
+  ['TV01', 'Ventas / Prestación de Servicios', 'Legislación Mercantil y Fiscal.'],
+  ['TE03', 'Servicio de transporte y/o envíos de paquetes', 'Real Decreto de 22 de agosto de 1885 por el que se publica el Código de Comercio.'],
+  ['TR05', 'Correos electrónicos', 'Código de comercio y demás legislación aplicable.'],
+  ['TR01', 'Solicitudes de información recibidas', 'Código de Comercio y otras disposiciones mercantiles.'],
+  ['TR07', 'Gestión de incidencias y/o violaciones de seguridad', 'Reglamento (UE) 2016/679 de protección de datos y LOPD.'],
+  ['TE04', 'Gestión de asuntos jurídicos propios', 'Legislación mercantil y laboral de aplicación.'],
+  ['TE01', 'Mantenimiento de los sistemas informáticos', 'Código de comercio.'],
+]
+
+const finalidades = [
+  'Comprobar que se están llevando a cabo todas las medidas técnicas necesarias para la correcta gestión de los datos personales con el software aplicado.',
+  'Envío de información comercial y/o publicitaria mediante correo electrónico.',
+  'Gestión de las peticiones de información recibidas por el interesado sobre nuestros productos o servicios.',
+  'Gestión exclusiva de las incidencias internas detectadas en el cumplimiento de los requisitos del RGPD.',
+  'Realizar campañas publicitarias para publicitar nuestros servicios y/o productos.',
+  'Recabar la opinión de los interesados.',
+  'Selección de personal para cubrir las vacantes de empleo necesarias.',
+  'Cumplir con todos los requisitos previstos en la Ley de Prevención de Riesgos Laborales.',
+  'Envío de paquetería y correspondencia.',
+  'Gestionar cualquier problema de índole jurídica que afecte a la empresa.',
+  'Gestionar, mantener y reparar los sistemas de almacenamiento informático.',
+  'Actuaciones para llevar a cabo la gestión laboral propia.',
+  'Actuaciones para llevar a cabo la gestión fiscal y contable propia.',
+  'Cumplir el principio de limitación del plazo de conservación de los datos personales.',
+  'Cumplimiento de los requisitos exigidos por el Reglamento (UE) 2016/679 y la Ley Orgánica 3/2018.',
+  'Gestión administrativa de clientes particulares.',
+  'Llevar a cabo la venta o prestación del servicio contratado.',
+]
+
+const destinatarios = [
+  'Agencia Tributaria',
+  'Servicio Público de Empleo Estatal',
+  'Tesorería General de la Seguridad Social',
+  'Agencia Nacional de Protección de Datos',
+  'Bancos y cajas',
+]
+
+const ficheros = [
+  'FG01 Gestión contable propia',
+  'FG02 Gestión laboral propia',
+  'FG15 Gestión fiscal propia. Recogida de datos',
+  'FE01 Mantenimiento informático',
+  'FE02 Prevención de riesgos laborales',
+  'FE03 Transporte y envío',
+  'FE04 Asuntos jurídicos propios',
+  'FR01 Solicitudes de información recibida',
+  'FR03 Selección de personal propio',
+  'FR04 Campañas publicitarias',
+  'FR05 Correos electrónicos',
+  'FR07 Gestión de incidencias y/o violaciones de seguridad',
+  'FR08 Recabar la opinión de los interesados',
+  'FR09 Seguridades en el software y hardware',
+  'FE07 Destrucción de documentos',
+  'FE08 Protección de Datos Personales',
+  'FP01 Clientes',
+]
+---
+
+<LegalPage
+  title="Política de privacidad"
+  description="Política de privacidad (RGPD) de FisioClinic Murcia: responsable, finalidades, legitimación, destinatarios y derechos."
+  path="/politica-de-privacidad"
+>
+  <p>
+    <strong>Interesado o afectado:</strong> clientes particulares, trabajadores, profesionales y representantes de empresas.
+    <br />
+    <span class="text-sm text-gray-500">Última actualización: {legal.actualizado}</span>
+  </p>
+
+  <h2>¿Qué tratamientos realizamos con sus datos personales?</h2>
+  <p>
+    En cumplimiento del Reglamento (UE) 2016/679 y de la Ley Orgánica de Protección de Datos de Carácter Personal, le comunicamos que sus datos personales pueden ser objeto de algunos de los siguientes tratamientos:
+  </p>
+  <ul>
+    {tratamientos.map(([cod, nombre, base]) => (
+      <li>{cod} - {nombre} (Base legal: {base})</li>
+    ))}
+  </ul>
+
+  <h2>¿Quiénes somos?</h2>
+  <p>
+    Nosotros somos los responsables del tratamiento de sus datos. Por ello, se informa de modo expreso, preciso e inequívoco, tanto a los interesados como a los órganos competentes, de los siguientes aspectos relativos al responsable del tratamiento:
+  </p>
+  <ul class="!list-none !pl-0">
+    <li>{legal.razonSocial}</li>
+    <li>{legal.nif}</li>
+    <li>Plaza Dentistas Murcianos 3, 30007 Murcia</li>
+    <li><a href={`mailto:${legal.email}`}>{legal.email}</a></li>
+  </ul>
+
+  <h2>¿Para qué usamos sus datos personales?</h2>
+  <p>En esta organización, podremos tratar sus datos de carácter personal exclusivamente para las finalidades que se indican a continuación:</p>
+  <ul>
+    {finalidades.map((f) => <li>{f}</li>)}
+  </ul>
+  <p>
+    Podrá elaborarse un perfil comercial o de usuario, en base a la información facilitada u obtenida. Se informa expresamente de que, en ningún caso, se elaborarán perfiles con los datos de un menor.
+  </p>
+  <p>
+    Los datos personales proporcionados por usted se conservarán mientras dure la relación contractual o, en su caso, mientras no ejerza su derecho de oposición o bien retire el consentimiento otorgado. Para ello, puede enviar un e-mail a la dirección indicada en el apartado relativo al responsable.
+  </p>
+
+  <h2>¿Por qué los usamos?</h2>
+  <p>Estamos legitimados para tratar sus datos personales por las siguientes razones:</p>
+  <ul>
+    <li>Su consentimiento inequívoco, informado y expreso, en aquellos supuestos en los que sea legalmente exigible, sin que, en ningún caso, la retirada del mismo condicione la ejecución de otros tratamientos cuya legitimación sea distinta, y sin que dicha retirada afecte a la licitud del tratamiento anterior a la retirada del mismo.</li>
+    <li>Una obligación legal del responsable del tratamiento.</li>
+    <li>La ejecución del contrato de prestación de servicios y/o de compraventa de los productos correspondientes, suscrito por usted.</li>
+    <li>El interés legítimo del responsable. Dicho interés se apoya en la previa realización de un juicio de proporcionalidad o ponderación entre el interés legítimo del responsable y los intereses o derechos y libertades de los interesados. Esta ponderación ha implicado la evaluación del interés, la evaluación del impacto del tratamiento sobre los interesados, el equilibrio entre los dos conceptos anteriores y la implementación de garantías adicionales. Siendo la ponderación final favorable al responsable, el tratamiento puede llevarse a cabo de conformidad con la normativa aplicable en materia de protección de datos personales.</li>
+  </ul>
+  <p>Para cualquier duda o aclaración, puede contactar con nosotros a través del e-mail facilitado en el apartado correspondiente al responsable del tratamiento.</p>
+
+  <h2>¿Con quién podemos compartir sus datos personales?</h2>
+  <p>Sus datos personales se comunicarán a las siguientes empresas y organismos:</p>
+  <ul>
+    {destinatarios.map((d) => <li>{d}</li>)}
+  </ul>
+  <p>Sus datos personales no se van a transferir a ningún tercer país u organización internacional.</p>
+
+  <h2>¿Qué datos tratamos y cómo los hemos obtenido?</h2>
+  <p>Sus datos personales se incorporarán a los siguientes ficheros, titularidad de la organización:</p>
+  <ul>
+    {ficheros.map((f) => <li>{f}</li>)}
+  </ul>
+  <p>Los datos personales que tratamos en nuestra organización proceden de la siguiente fuente: el propio interesado.</p>
+
+  <h2>¿Qué derechos puede ejercer?</h2>
+  <p>Le garantizamos el ejercicio de los derechos que le asisten en relación con el tratamiento de sus datos personales. En particular, le informamos de que tiene derecho a:</p>
+  <ul>
+    <li>Obtener confirmación sobre si se están tratando sus datos.</li>
+    <li>Ejercitar el derecho de acceso a los datos personales de los que disponemos, obteniendo información sobre los fines del tratamiento, la categoría de datos tratados, los posibles destinatarios, el plazo de conservación, el origen de los datos y, en su caso, la elaboración de perfiles o toma de decisiones automatizadas.</li>
+    <li>Ejercer el derecho de rectificación. A estos efectos, le recordamos que los datos personales de los que disponemos han de ser siempre un fiel reflejo de la realidad, de modo que no dude en hacer uso de su derecho en caso de que cualquier dato sufra modificación, cambio o anulación. Usted garantiza que los datos personales que nos haya facilitado por cualquier vía son ciertos y exactos, y se compromete a notificar cualquier cambio o modificación de los mismos, siendo de su exclusiva responsabilidad toda pérdida o daño causado al responsable o a cualquier tercero por motivo de una comunicación de información errónea, inexacta o incompleta.</li>
+    <li>Por motivos relacionados con su situación particular, podrá oponerse al tratamiento de sus datos, en cuyo caso nuestra organización dejará de tratar los datos, salvo que existan motivos legítimos que lo impidan.</li>
+    <li>Solicitar la supresión de sus datos personales cuando, entre otros motivos, ya no sean necesarios para las finalidades arriba descritas o bien ya no contemos con la legitimación para tratarlos.</li>
+    <li>Solicitar la portabilidad de sus datos, cuando el tratamiento se efectúe por medios automatizados y siempre que esté vinculado a nuestra entidad en base a un contrato suscrito o bien haya otorgado consentimiento para el tratamiento realizado. En estos casos, tendrá derecho a recibir sus datos personales en un formato estructurado, de uso común y lectura mecánica, o bien a que se transmitan directamente a otro responsable, cuando sea técnicamente posible.</li>
+    <li>En determinadas circunstancias, podrá solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</li>
+    <li>Oponerse a la toma de decisiones automatizadas, incluida la elaboración de perfiles.</li>
+  </ul>
+  <p>
+    Dichos derechos podrán ser ejercitados gratuitamente, salvo en los casos legalmente previstos, mediante solicitud escrita y firmada por usted o, en su caso, por quien lo represente, dirigida al responsable, en las direcciones facilitadas a tal efecto en el apartado primero, o bien físicamente en cualquiera de nuestros establecimientos.
+  </p>
+  <p>
+    Usted también tiene derecho a presentar reclamaciones, bien ante la Agencia Española de Protección de Datos (<a href="https://www.agpd.es/" target="_blank" rel="noopener noreferrer">www.agpd.es</a>) o bien ante la autoridad de control que corresponda. Igualmente, podrá acudir a los Tribunales de Justicia para reclamar una indemnización.
+  </p>
+  <p>
+    Finalmente, tiene derecho a retirar su consentimiento, con la misma facilidad con la que lo otorgó. Para ello, puede enviar un e-mail a la dirección indicada en el apartado relativo al responsable.
+  </p>
+  <p>
+    Igualmente le informamos de que en cada tratamiento de sus datos personales se determinan las posibles amenazas e impactos que pueden producirse como consecuencia de las mismas, mitigando o eliminando si es posible, los potenciales perjuicios, mediante la aplicación de las correspondientes medidas de seguridad que periódicamente se revisan para determinar su eficacia.
+  </p>
+  <p>
+    Nuestro sistema de control también permite cumplir los principios del tratamiento de sus datos, pudiendo acreditar ante el interesado, el principio de limitación a la finalidad del tratamiento, el principio de limitación al plazo de conservación, el principio de minimización de datos, así como el principio de integridad y confidencialidad.
+  </p>
+  <p>
+    Por último, también le comunicamos que periódicamente recibirá encuestas que nos permitirán conocer su opinión sobre cualquier sugerencia relativa al tratamiento de sus datos personales, al igual que poder dar cumplimiento al principio de transparencia y exactitud de los datos tratados.
+  </p>
+  <p>Para cualquier duda o aclaración, puede contactar con nosotros a través del e-mail facilitado en el primer apartado.</p>
+  <p>Sin otro particular, atentamente,<br />El Responsable.</p>
+</LegalPage>
